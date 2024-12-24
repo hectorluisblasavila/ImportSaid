@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Import.Said</title>
+	<link href="index.css" rel="stylesheet">
+	<link rel="icon" type="image/x-icon" href="iconos/favicon.png">
+	<style type="text/css">a { text-decoration: none; color: black;}</style>
+	<script src="stockaros.js" type="text/javascript" defer></script>
+	<script src="stockllantas.js" type="text/javascript" defer></script>
+	<script src="catalogo.js" type="text/javascript" defer></script>
+	<script src="catalogollantas.js" type="text/javascript" defer></script>
+</head>
+<body class="pagefull">
+<div class="toppage">
+	<div class="toporder">
+		<div class="toppageiteml">
+			<div class="contac">
+				<img class="iconos" src="iconos/phono.png">
+				<div class="info1">
+					<a href="https://wa.me/c/51923435438" target="_blank">923435438</a>
+				</div>
+			</div>
+			<div class="contac">
+				<img class="iconos" src="iconos/imbox.png">
+				<div class="info2">
+					<a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" target="_blank">said.imbox@gmail.com</a>
+				</div>
+			</div>
+			<div class="contac">
+				<img class="iconos" src="iconos/ubicacion.png">
+				<div class="info3">
+					<a href="https://goo.gl/maps/HLfHvN8MkgvP1H4bA" target="_blank">Nuestro Local</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<header class="fijo">
+	<div class="contefijo">
+		<div class="fijo1">
+			<div class="top2 buscar1">
+				<a class="cajalogo">
+					<img class="logo" src="iconos/logo.png">
+				</a>
+			</div>
+			<div class="top2">
+				<input type="text" class="buscar" id="buscar-producto" onkeyup="buscar()" value placeholder="Diametro Aros" autocomplete="off" name="">
+					<!--<div class="cajalupa">
+						<img class="lupa" src="iconos/lupa.png">
+					</div>-->
+			</div>
+			<div class="top2">
+				<input type="text" class="buscar" id="ancho-aros" onkeyup="buscar()" value placeholder="Ancho Aros" autocomplete="off" name="">
+					<!--<div class="cajalupa">
+						<img class="lupa" src="iconos/lupa.png">
+			</div>-->
+			</div>
+			<div class="top2">
+				<input type="text" class="buscar" id="buscar-llantas" onkeyup="buscarllantas()" value placeholder="Diametro llantas" autocomplete="off" name="">
+					<!--<div class="cajalupa">
+						<img class="lupa" src="iconos/lupa.png">
+					</div>-->
+			</div>
+
+			<div class="top2">
+				<input type="text" class="buscar" id="ancho-llantas" onkeyup="buscarllantas()" value placeholder="ancho llantas" autocomplete="off" name="">
+					<!--<div class="cajalupa">
+						<img class="lupa" src="iconos/lupa.png">
+					</div>-->
+			</div>
+
+
+			<div class="top2">
+				<div class="usuario">
+					<img class="lupa" src="iconos/persona.png">
+					<a class="ingresar">Ingresar</a>
+				</div>
+				<div class="usuario">
+					<img class="lupa" src="iconos/carrito.png">
+					<a class="ingresar">COMPRAS</a>
+					<span class="contador">0</span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</header>
+<input type="checkbox" id="boton-menu">
+	<label for="boton-menu" class="boton"><img src="iconos/btn-menu.png" style="
+    width: 20px;"></label>
+<div class="fijo2">
+		<nav class="menu-principal1">
+			<p class="menu-titulo">LLANTAS</p>
+			<ul class="menu-principal">
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/auto.png" class="icono-menu">
+					<a class="menu-opcion" href="">
+						
+						AUTOMOVIL
+						
+					</a>
+					</div>
+					
+				</li>
+				<li class="lista">
+					<div class="menu1">
+						<img src="iconos/suv.png" class="icono-menu">
+							<a class="menu-opcion" href="">4X4/SUV</a>
+					</div>
+					
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/camion.png" class="icono-menu">
+					<a class="menu-opcion" href="">
+						
+						CAMION
+					</a>
+					</div>
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/bus.png" class="icono-menu">
+					<a class="menu-opcion" href="">
+						
+						AUTOBUS
+					</a>
+					</div>
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/volquete.png" class="icono-menu">
+					<a class="menu-opcion" href="">
+						
+						VOLQUETE
+					</a>
+
+				</li>
+			</ul>
+
+			
+		</nav>
+		<nav class="menu-principal1">
+			<p class="menu-titulo">CATALOGO </p>
+			<ul class="menu-principal">
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r12.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 12</a>
+					</div>
+				</li>
+				<li class="lista">
+					
+					<div class="menu1">
+						<img src="iconos/r13.png" class="icono-menu">
+							<a class="menu-opcion" href="archivo.pdf" >ARO 13</a>
+							
+					</div>
+					
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r14.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 14</a>
+					</div>
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r15.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 15</a>
+					</div>
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r16.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 16</a>
+
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r17.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 17</a>
+
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r18.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 18</a>
+
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r19.png" class="icono-menu">
+					<a class="menu-opcion" href="">ARO 19</a>
+
+				</li>
+				<li class="lista">
+					<div class="menu1">
+					<img src="iconos/r20.png" class="icono-menu">
+					<a class="menu-opcion" id="aro20"href="">ARO 20</a>
+
+				</li>
+			</ul>
+
+			
+		</nav>
+	</div>
+<!--<div class="slider">
+	<ul>
+		<li><img src="iconos/slider1.png" alt=""></li>
+		<li><img src="iconos/slider2.png" alt=""></li>
+		<li><img src="iconos/slider3.png" alt=""></li>
+		<li><img src="iconos/slider4.png" alt=""></li>
+	</ul>
+</div>-->
+<div class="productoall">	
+	<main id="contenedor-aros"></main>
+	<main id="contenedor-llantas"></main>
+</div>
+
+</body>
+</html>	
