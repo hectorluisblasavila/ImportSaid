@@ -127,10 +127,10 @@
 .buscar{
     background-color: #f9dc05;
     border: none;
-    border-radius: 3px 0px 0px 3px;
+    border-radius: 10px 10px 10px 10px;
     height: 37px;
-    width: 48%;
-    padding-left: 15px;
+    width: 100%;
+    padding-left: 5px;
     outline: none;
     margin: none;
 }
@@ -309,7 +309,54 @@ header label:hover{
 }
 
 
-}
-
+}/* Estilo base para el bloque */
+.fijo1 {
+    display: flex; /* Elementos alineados horizontalmente por defecto */
+    align-items: center;
+    gap: 10px; /* Espaciado entre elementos */
+    flex-wrap: nowrap; /* No permite que los elementos se muevan a una nueva línea */
+  }
   
+  /* Logo */
+  .fijo1 .logo {
+    width: 100px; /* Tamaño del logo */
+    height: auto;
+  }
+  
+  /* Contenedor de los inputs */
+  .inputs-container {
+    display: flex; /* Los inputs estarán en fila horizontal */
+    gap: 10px; /* Espaciado entre inputs */
+    width: 100%; /* Ocupa todo el espacio disponible */
+  }
+  
+  /* Inputs con clase .top2 */
+  .inputs-container .top2 {
+    flex: 1; /* Los inputs ocuparán el mismo espacio disponible */
+    padding: 2px;
+    font-size: 14px;
+    box-sizing: border-box;
+    min-width: 120px; /* Ajusta el ancho mínimo de cada input */
+    height: 40px; /* Altura fija */
+  }
+  
+  /* Media Query para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .fijo1 {
+      flex-direction: column; /* Cambia la dirección del bloque a vertical */
+      align-items: flex-start; /* Alinea elementos al inicio */
+    }
+  
+    .inputs-container {
+      display: flex; /* Los inputs seguirán estando en fila horizontal */
+      gap: 10px; /* Mantiene el espaciado entre los inputs */
+      width: 100%; /* Ocupa todo el ancho del contenedor */
+      flex-wrap: nowrap; /* Asegura que los inputs sigan en la misma línea */
+    }
+  
+    .inputs-container .top2 {
+      flex: 1; /* Los inputs ocuparán el mismo espacio disponible */
+      min-width: 100px; /* Ajusta el ancho mínimo de los inputs */
+    }
+  }
   
