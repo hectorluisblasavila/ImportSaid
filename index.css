@@ -78,8 +78,7 @@
     width: 100%;
     position: -webkit-sticky; /* Safari */
   position: sticky;
-  top: 50;
-  z-index: 999;
+  
 }
 
 .fijo1{
@@ -272,7 +271,7 @@ header label:hover{
         position: fixed;
        
         z-index: 999;
-
+ 
 
     }
     .fijo2{
@@ -313,22 +312,4 @@ header label:hover{
 }
 
   
-  /* Adaptaciones para tablet */
-  @media (max-width: 768px) and (min-width: 426px) {
-    .topPage {
-      flex-direction: column; /* Cambia la dirección para optimizar espacio */
-      padding: 15px;
-      font-size: 14px; /* Reduce ligeramente el tamaño del texto */
-    }
-  }
-  
-  /* Adaptaciones para móvil */
-  @media (max-width: 425px) {
-    .topPage {
-      flex-direction: column;
-      padding: 10px;
-      font-size: 12px; /* Reduce más el tamaño del texto */
-      text-align: center; /* Centra el texto para móviles */
-    }
-  }
   
