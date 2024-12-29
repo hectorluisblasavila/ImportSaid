@@ -6,11 +6,11 @@ stockAros.forEach(producto => {
   div.classList.add('producto');
   div.innerHTML = `
     <img class="imagen" src=${producto.imagen} alt="">
-    <h3 class="titulop info">Diametro: ${producto.medida}</h3>
-    <p class="info">Marca: ${producto.marca}</p>
-    <p class="info">PCD: ${producto.PCD}</p>
+    <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
     <h5 class="info" id="anchoaros">Ancho: ${producto.ancho}</h5>
+    <p class="info">PCD: ${producto.PCD}</p>
     <p class="info">ET: ${producto.ET}</p>
+    <p class="info">Marca: ${producto.marca}</p>
     <p class="info">Codigo: ${producto.codigo}</p>
     <p class="precioProducto info">Precio: S/.${producto.precio}.00</p>
     <button class="boton-agregar">WhatsApp</button>
@@ -22,11 +22,11 @@ stockAros.forEach(producto => {
   botonAgregar.addEventListener('click', () => {
     // Crear el mensaje de WhatsApp
     const mensaje = `Hola, estoy interesado en el siguiente producto:%0A
-    - *Diametro:* ${producto.medida}%0A
-    - *Marca:* ${producto.marca}%0A
-    - *PCD:* ${producto.PCD}%0A
+    - *Diametro:* ${producto.Diametro}%0A
     - *Ancho:* ${producto.ancho}%0A
+    - *PCD:* ${producto.PCD}%0A
     - *ET:* ${producto.ET}%0A
+    - *Marca:* ${producto.marca}%0A
     - *Código:* ${producto.codigo}%0A
     - *Precio:* S/. ${producto.precio}.00%0A
 ¿Está disponible?`;

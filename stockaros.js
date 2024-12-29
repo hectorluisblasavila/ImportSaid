@@ -72,7 +72,7 @@ const stockAros = [
 //{codigo:"ARO15ANCH", medida:"R15", descripcion:"super ancho", ancho:"10", ET:"", PCD:"5*100", imagen:"", cantidad:"1", precio:"0"},
 {codigo:"R15HCW0001", medida:"R15", descripcion:"ESTRELLA 5 BRAZOS ABIERTA FILO AMARILLO", ancho:"6,5", ET:"35", PCD:"8X100/114", imagen:"https://i.ibb.co/kh0G3FW/IMG-20210810-110548.jpg", cantidad:"1", precio:"1254"},
 {codigo:"R15VAL0001", medida:"R15", descripcion:"ESTRELLA 7 BRAZOS DELGADOS FILO ROJO", ancho:"7", ET:"30", PCD:"8X100/114", imagen:"https://i.ibb.co/mB51m3S/IMG-20210810-110601.jpg", cantidad:"1", precio:"1254"},
-{codigo:"R15BEL0001", medida:"R15", descripcion:"CONCAVO CROMADO PESTAÑA", ancho:"8", ET:"0", PCD:"8X100/114", imagen:"https://i.ibb.co/TTTLNhP/IMG-20210810-110613.jpg", cantidad:"1", precio:"1254"},
+{codigo:"R15BEL0001", medida:"R15", descripcion:"CONCAVO CROMADO PESTAÑA", ancho:"8", ET:"0", PCD:"8X100/114", imagen:'productos/IMG_20220512_173448.jpg', cantidad:"1", precio:"1254"},
 {codigo:"R15VAL0002", medida:"R15", descripcion:"ESTRELLA CON GIRO 8 BRAZOS FILO AZUL", ancho:"7", ET:"30", PCD:"8X100/114", imagen:"https://i.ibb.co/9N0GP0v/IMG-20210810-110618.jpg", cantidad:"1", precio:"1254"},
 {codigo:"R15HCW0002", medida:"R15", descripcion:"ESTRELLA 5 BRAZOS ABIERTA FILO AZUL", ancho:"6,5", ET:"35", PCD:"8X100/114", imagen:"https://i.ibb.co/HXwnJ8n/IMG-20210810-110652.jpg", cantidad:"1", precio:"1254"},
 {codigo:"R15VAL0003", medida:"R15", descripcion:"ESTRELLA CON GIRO 8 BRAZOS FILO ROJO", ancho:"7", ET:"30", PCD:"8X100/114", imagen:"https://i.ibb.co/pJZGLBn/IMG-20210810-110700.jpg", cantidad:"1", precio:"1254"},
