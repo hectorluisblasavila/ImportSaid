@@ -179,11 +179,6 @@
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-.titulop{
-  font-size: 16px;
-  margin-bottom: 5PX;
-    
-}
 
 .boton-agregar{
     padding: 5px;
@@ -275,7 +270,7 @@ header label:hover{
     .contefijo{
 
         position: fixed;
-        top: 0;
+       
         z-index: 999;
 
 
@@ -317,15 +312,6 @@ header label:hover{
 
 }
 
-/* Estilo general para .topPage */
-.topPage {
-    display: flex; /* Ejemplo: puedes usar flex para organizar elementos */
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f4f4f4;
-    font-size: 16px; /* Tamaño base */
-  }
   
   /* Adaptaciones para tablet */
   @media (max-width: 768px) and (min-width: 426px) {
