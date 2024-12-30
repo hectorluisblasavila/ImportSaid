@@ -12,7 +12,7 @@ stockllantas.forEach(producto => {
         <p class="info">PR: ${producto.PR}</p>
         <p class="info">Marca: ${producto.marca}</p>
         <p class="info">Codigo: ${producto.codigo}</p>
-        <p class="precioProducto info">Precio: S/.${producto.precio}.00</p>
+        <p class="precioProducto info">Precio: S/.${producto.precio}</p>
         <button id="agregar${producto.id}" class="boton-agregar" href="#">WhatsApp</button>
     `;
     contenedorllantas.appendChild(div);
