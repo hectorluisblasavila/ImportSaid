@@ -1,4 +1,5 @@
 const contenedorllantas = document.getElementById('contenedor-llantas');
+const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/";
 
 stockllantas.forEach(producto => {
     const div = document.createElement("div");
@@ -28,7 +29,7 @@ stockllantas.forEach(producto => {
         - *Marca:* ${producto.marca}%0A
         - *Código:* ${producto.codigo}%0A
         - *Precio:* S/. ${producto.precio}.00%0A
-        - *Imagen:* ${producto.imagen}%0A
+        - *Imagen:* ${baseURL}${producto.imagen}%0A
         ¿Está disponible?`;
 
         // Número de WhatsApp (reemplaza con el tuyo)
