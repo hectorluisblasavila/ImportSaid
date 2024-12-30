@@ -7,7 +7,7 @@ stockllantas.forEach(producto => {
         <img class="imagen" src="${producto.imagen}" alt="Imagen de la llanta">
         <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
         <h5 class="info">Ancho: ${producto.ancho}</h5>
-        <p class="info">Perfil: ${producto.Perfil}</p>
+        <h4 class="info">Perfil: ${producto.Perfil}</h4>
         <p class="info">PR: ${producto.PR}</p>
         <p class="info">Marca: ${producto.marca}</p>
         <p class="info">Codigo: ${producto.codigo}</p>
