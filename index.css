@@ -77,7 +77,7 @@
 .fijo{
     width: 100%;
     position: -webkit-sticky; /* Safari */
-  position: sticky;
+ 
   
 }
 
@@ -111,6 +111,7 @@
     height: 75px;
     align-items:center;
     justify-content: space-around ;
+    z-index: 999;
 }
 
 .cajalogo{
