@@ -117,11 +117,12 @@
 
 .producto{
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5%;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
     cursor: pointer;
     background-color: #f2f2f2;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 
 .producto:hover{
@@ -130,20 +131,8 @@
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-.productollantas{
-    overflow: hidden;
-    border-radius: 5%;
-    margin-bottom: 20px;
-    cursor: pointer;
-    background-color: #f2f2f2;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
 
-.productollantas:hover{
-    transition: all ease-in-out .4s;
-    border: 1px solid black;
-    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
-}
+
 
 
 .boton-agregar{
