@@ -180,7 +180,7 @@
 
 
 #contenedor-aros{
-    margin-top: 50px;
+    margin: 1%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
@@ -191,7 +191,7 @@
 }
 
 #contenedor-llantas{
-    margin-top: 50px;
+    margin: 1%;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
