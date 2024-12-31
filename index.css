@@ -185,7 +185,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
     grid-template-rows: 1fr;
-    gap: 10px;
     justify-content: space-evenly;
     justify-items: center;    
 }
@@ -196,7 +195,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 200px));
     grid-template-rows: 1fr;
-    gap: 10px;
     justify-content: space-evenly;
     justify-items: center;    
 }
