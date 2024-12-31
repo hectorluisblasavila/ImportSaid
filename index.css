@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: impact;
     letter-spacing: 1.3px;
     text-decoration: none;
@@ -19,22 +19,12 @@
 .toppage{
     background-color: #f9dc05;
     width: 100%;
-    height: 25px;
-
-}
-
-
-.toporder{
-    display: flex;
-    height: 100%;
-}
-
-
-.toppageiteml{
-    width: 100%;
+    height: 10%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
+
 
 
 .iconos{
@@ -47,93 +37,68 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-}
-.contac:hover{
-    transition: all ease-in-out .6s;
-    border-radius: 5%;    
-    box-shadow: 0px 0px 2px 2px rgba(255, 251, 2, 0.2);
-}
-
-.info1{
-    width: auto;
     font-size: 12px;
-
-}
-
-
-.info2{
-    font-size: 12px;
-    float: right;   
-    width: auto;
-}
-
-
-.info3{
-    width: auto;
-    font-size: 12px;
-   
+    
 }
 
 .fijo{
-    width: 100%;
-    position: -webkit-sticky; /* Safari */
- 
-  
-}
-
-.fijo1{
     display: flex;
-    width: 100%;
-    height: 75px;
-    justify-content: space-evenly;
-}
-
-.fijo2{
-    display: flex;
+    background-color: black;
     flex-direction: column;
-    background-color: #f0ebc3;
-    width: 100%;
-    height: 226px;
-   justify-content: space-evenly;
+    align-items: center;
+    
 }
 
-.contefijo{
-    width: 100%;
-    background-color: rgb(0, 0, 0);
-    justify-content: space-around;
-    height: 75px;
+
+.logo{
+    height: 50px;
+    padding: 5px;
 }
+
+
+
+.inputs-container{
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.titulo-filtrar{
+    color: #f9dc05;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
 
 
 .top2{
+    
     width: 100%;
     display: flex;
-    height: 75px;
+    text-align: center;
     align-items:center;
-    justify-content: space-around ;
+   
     z-index: 999;
+    justify-content: center
 }
 
-.cajalogo{
-    height: 70%;
-    display: flex;
-    padding-left: 15px;
-}
 
-.logo{
-    margin: auto;
-    height: 100%;
-}
+
 
 .buscar{
+    
     background-color: #f9dc05;
     border: none;
     border-radius: 10px 10px 10px 10px;
-    height: 37px;
-    width: 100%;
+    height: 20px;
+    width: 50%;
     padding-left: 5px;
     outline: none;
-    margin: none;
+    margin: 3px;
+    text-align: center
 }
 .buscar::placeholder{
     color: black;
@@ -144,6 +109,7 @@
 
 
 .productoall{
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -208,7 +174,7 @@
 .imagen{
     border-radius: 5%;
     width: 100%;
-    margin-bottom: 20px;
+    
 }
 
 .imagen:hover{
@@ -262,102 +228,3 @@ header label:hover{
     opacity: .9;
 
 }
-
-@media(max-width: 1035px){
-    header label{
-        display: block;
-    }
-    .contefijo{
-
-        position: fixed;
-       
-        z-index: 999;
- 
-
-    }
-    .fijo2{
-        width: 200px;
-       margin-left: -300%;
-       transition: all 0.8s;
-       margin-top: -15px;
-       height: 540px;
-       position: fixed;
-       z-index: 999;
-       border-radius: 0% 5% 5% 0%;
-    }
-
-    .fijo2.rines{
-    height: 225px;
-    }
-    
-    .slider{
-        top: 115px;
-        z-index: -1;
-    }
-
-#contenedor-aros{
-    margin-top: 120px;
-}
-
-#contenedor-llantas{
-    margin-top: 120px;
-}
-
-.producto{
-    min-width: 45%;
-  
-   
-}
-
-
-}/* Estilo base para el bloque */
-.fijo1 {
-    display: flex; /* Elementos alineados horizontalmente por defecto */
-    align-items: center;
-    gap: 10px; /* Espaciado entre elementos */
-    flex-wrap: nowrap; /* No permite que los elementos se muevan a una nueva línea */
-  }
-  
-  /* Logo */
-  .fijo1 .logo {
-    width: 100px; /* Tamaño del logo */
-    height: auto;
-  }
-  
-  /* Contenedor de los inputs */
-  .inputs-container {
-    display: flex; /* Los inputs estarán en fila horizontal */
-    gap: 10px; /* Espaciado entre inputs */
-    width: 100%; /* Ocupa todo el espacio disponible */
-  }
-  
-  /* Inputs con clase .top2 */
-  .inputs-container .top2 {
-    flex: 1; /* Los inputs ocuparán el mismo espacio disponible */
-    padding: 2px;
-    font-size: 14px;
-    box-sizing: border-box;
-    min-width: 120px; /* Ajusta el ancho mínimo de cada input */
-    height: 40px; /* Altura fija */
-  }
-  
-  /* Media Query para pantallas pequeñas */
-  @media (max-width: 768px) {
-    .fijo1 {
-      flex-direction: column; /* Cambia la dirección del bloque a vertical */
-      align-items: flex-start; /* Alinea elementos al inicio */
-    }
-  
-    .inputs-container {
-      display: flex; /* Los inputs seguirán estando en fila horizontal */
-      gap: 10px; /* Mantiene el espaciado entre los inputs */
-      width: 100%; /* Ocupa todo el ancho del contenedor */
-      flex-wrap: nowrap; /* Asegura que los inputs sigan en la misma línea */
-    }
-  
-    .inputs-container .top2 {
-      flex: 1; /* Los inputs ocuparán el mismo espacio disponible */
-      min-width: 100px; /* Ajusta el ancho mínimo de los inputs */
-    }
-  }
-  

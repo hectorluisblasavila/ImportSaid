@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Import.Said</title>
 	<link href="index.css" rel="stylesheet">
 	<link rel="icon" type="image/x-icon" href="productos/favicon.png">
@@ -13,71 +13,78 @@
 	<script src="catalogollantas.js" type="text/javascript" defer></script>
 	<meta property="og:title" content="IMPORT SAID">
     <meta property="og:description" content="Nos dedicamos a la venta de llantas y aros.">
-    <meta property="og:image" content="https://hectorluisblasavila.github.io/ImportSaid/productos/miniatura.png">
+    <meta property="og:image" content="https://hectorluisblasavila.github.io/ImportSaid/productos/logo.png">
     <meta property="og:url" content="https://hectorluisblasavila.github.io/ImportSaid/">
     <meta property="og:type" content="website">
 </head>
 <body class="pagefull">
-<div class="toppage">
-	<div class="toporder">
-		<div class="toppageiteml">
-			<div class="contac">
-				<img class="iconos" src="productos/phono.png">
-				<div class="info1">
-					<a href="https://wa.me/c/51923435438" target="_blank">923435438</a>
-				</div>
-			</div>
-			<div class="contac">
-				<img class="iconos" src="productos/imbox.png">
-				<div class="info2">
-					<a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" target="_blank">said.imbox@gmail.com</a>
-				</div>
-			</div>
-			<div class="contac">
-				<img class="iconos" src="productos/ubicacion.png">
-				<div class="info3">
-					<a href="https://goo.gl/maps/HLfHvN8MkgvP1H4bA" target="_blank">Nuestro Local</a>
-				</div>
+
+<header class="fijo">
+	
+	<div class="toppage">
+	
+		<div class="contac">
+			<img class="iconos" src="productos/phono.png">
+			<div class="info1">
+				<a href="https://wa.me/c/51923435438" target="_blank">923435438</a>
 			</div>
 		</div>
-		
-	</div>
-</div>
-<header class="fijo">
-	<div class="contefijo">
-		<div class="fijo1">
-			<div class="top2 buscar1">
-				<a class="cajalogo">
-					<img class="logo" src="productos/logo.png">
-				</a>
+		<div class="contac">
+			<img class="iconos" src="productos/imbox.png">
+			<div class="info2">
+				<a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" target="_blank">said.imbox@gmail.com</a>
 			</div>
+		</div>
+		<div class="contac">
+			<img class="iconos" src="productos/ubicacion.png">
+			<div class="info3">
+				<a href="https://goo.gl/maps/HLfHvN8MkgvP1H4bA" target="_blank">Nuestro Local</a>
+			</div>
+		</div>
+	
+	</div>
+
+
+		<div class="cajalogo">
+			
+				
+					<img class="logo" src="productos/logo.png">
+			
 		</div>
 		<div class="inputs-container">
-			<div class="top2">
-				<input type="text" class="buscar" id="buscar-producto" onkeyup="buscar()" value placeholder="Diametro Aros" autocomplete="off" name="">
+			<div class="filtrar">
+				<a class="titulo-filtrar">Filtrar Aros por:</a>
+				<div class="top2">
+					<input type="text" class="buscar" id="buscar-producto" onkeyup="buscar()" value placeholder="Diametro" autocomplete="off" name="">
+						
+				</div>
+				<div class="top2">
+					<input type="text" class="buscar" id="ancho-aros" onkeyup="buscar()" value placeholder="Ancho" autocomplete="off" name="">
 					
+				</div>
 			</div>
-			<div class="top2">
-				<input type="text" class="buscar" id="ancho-aros" onkeyup="buscar()" value placeholder="Ancho Aros" autocomplete="off" name="">
-				
-			</div>
-			<div class="top2">
-				<input type="text" class="buscar" id="buscar-llantas" onkeyup="buscarllantas()" value placeholder="Diametro llantas" autocomplete="off" name="">
+			
+			<div class="filtrar">
+				<a class="titulo-filtrar">Filtrar Neumaticos por:</a>
+				<div class="top2">
+				<input type="text" class="buscar" id="buscar-llantas" onkeyup="buscarllantas()" value placeholder="Diametro" autocomplete="off" name="">
 					
-			</div>
+				</div>
 
-			<div class="top2">
-				<input type="text" class="buscar" id="ancho-llantas" onkeyup="buscarllantas()" value placeholder="Ancho llantas" autocomplete="off" name="">
+				<div class="top2">
+				<input type="text" class="buscar" id="ancho-llantas" onkeyup="buscarllantas()" value placeholder="Ancho" autocomplete="off" name="">
 					
-			</div>
+				</div>
 
-			<div class="top2">
-				<input type="text" class="buscar" id="perfil-llantas" onkeyup="buscarllantas()" value placeholder="Perfil llantas" autocomplete="off" name="">
+				<div class="top2">
+				<input type="text" class="buscar" id="perfil-llantas" onkeyup="buscarllantas()" value placeholder="Perfil" autocomplete="off" name="">
 					
-			</div>
+				</div>
+			 </div>	
+			
 		</div>		
 		
-	</div>
+	
 </header>
 
 <div class="productoall">	
