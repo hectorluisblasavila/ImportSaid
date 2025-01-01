@@ -5,6 +5,7 @@ stockllantas.forEach(producto => {
     const div = document.createElement("div");
     div.classList.add('producto');
     div.innerHTML = `
+    <a href="producto.html?id=${producto.codigo}" class="boton-ver">
         <img class="imagen" src="${producto.imagen}" alt="Imagen de la llanta">
         <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
         <h5 class="info">Ancho: ${producto.ancho}</h5>
@@ -13,7 +14,7 @@ stockllantas.forEach(producto => {
         <p class="info">Marca: ${producto.marca}</p>
         <p class="info">Codigo: ${producto.codigo}</p>
         <p class="precioProducto info">Precio: S/.${producto.precio}</p>
-         <a href="producto.html?id=${producto.codigo}" class="boton-ver">Ver Detalles</a> <!-- Nuevo enlace -->
+    </a> <!-- Nuevo enlace -->
         <button id="agregar${producto.id}" class="boton-agregar" href="#">WhatsApp</button>
     `;
     contenedorllantas.appendChild(div);
