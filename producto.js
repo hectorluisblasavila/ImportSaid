@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productoSeleccionado = stockllantas.find(producto => producto.codigo === productoId);
 
     if (productoSeleccionado) {
-        const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/productos/";
+        const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/";
 
         // Definir las propiedades de Open Graph dinámicamente
         const ogTitle = document.querySelector('meta[property="og:title"]');
