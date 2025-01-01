@@ -183,7 +183,7 @@
     margin: 1%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 175px));
+    grid-template-columns: repeat(auto-fill, minmax(185px, 185px));
     grid-template-rows: 1fr;
     justify-content: space-evenly;
     justify-items: center;    
@@ -193,7 +193,7 @@
     margin: 1%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(175px, 175px));
+    grid-template-columns: repeat(auto-fill, minmax(185px, 185px));
     grid-template-rows: 1fr;
     justify-content: space-evenly;
     justify-items: center;    
