@@ -28,17 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Asegúrate de tener la información del producto seleccionada
-const productoSeleccionado = stockllantas.find(producto => producto.codigo === params.get('id'));
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const productoId = params.get('id'); // Obtener el ID del producto desde la URL
+    const productoSeleccionado = stockllantas.find(producto => producto.codigo === productoId);
 
-if (productoSeleccionado) {
-    // Construye la URL completa de la imagen y el enlace del producto
-    const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/";
-    const imagenURL = `${baseURL}productos/${productoSeleccionado.imagen}`;
-    const productoURL = `${baseURL}producto.html?id=${productoSeleccionado.codigo}`;
+    if (productoSeleccionado) {
+        const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/productos/";
 
-    // Actualiza las etiquetas OG dinámicamente
+        // Definir las propiedades de Open Graph dinámicamente
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        const ogImage = document.querySelector('meta[property="og:image"]');
+        const ogUrl = document.querySelector('meta[property="og:url"]');
 
-    document.querySelector('meta[property="og:image"]').setAttribute("content", imagenURL);
-    document.querySelector('meta[property="og:url"]').setAttribute("content", productoURL);
-}
+        if (ogTitle) ogTitle.setAttribute("content", `Detalles del producto: ${productoSeleccionado.marca} ${productoSeleccionado.codigo}`);
+        if (ogDescription) ogDescription.setAttribute("content", `Consulta detalles de este producto: diámetro ${productoSeleccionado.Diametro}, ancho ${productoSeleccionado.ancho}. ¡Compra ya!`);
+        if (ogImage) ogImage.setAttribute("content", `${baseURL}${productoSeleccionado.imagen}`);
+        if (ogUrl) ogUrl.setAttribute("content", window.location.href);
+
+        // Actualiza otros elementos en la página si es necesario
+        document.title = `${productoSeleccionado.marca} - ${productoSeleccionado.codigo}`;
+    } else {
+        console.error("Producto no encontrado. No se pueden actualizar las etiquetas OG.");
+    }
+});
