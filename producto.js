@@ -26,3 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
         detalleContainer.innerHTML = '<p>Producto no encontrado</p>';
     }
 });
+
+
+// Asegúrate de tener la información del producto seleccionada
+const productoSeleccionado = stockllantas.find(producto => producto.codigo === params.get('id'));
+
+if (productoSeleccionado) {
+    // Construye la URL completa de la imagen y el enlace del producto
+    const baseURL = "https://hectorluisblasavila.github.io/ImportSaid/";
+    const imagenURL = `${baseURL}assets/images/${productoSeleccionado.imagen}`;
+    const productoURL = `${baseURL}producto.html?id=${productoSeleccionado.codigo}`;
+
+    // Actualiza las etiquetas OG dinámicamente
+
+    document.querySelector('meta[property="og:image"]').setAttribute("content", imagenURL);
+    document.querySelector('meta[property="og:url"]').setAttribute("content", productoURL);
+}
