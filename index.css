@@ -69,6 +69,7 @@
     position: absolute;
     right: 0; /* Alinea al lado izquierdo */
     margin-right: 10px; /* Agrega espacio del borde si es necesario */
+Gap: 15px;
   }
   
   .social-icons a {
