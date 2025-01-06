@@ -44,3 +44,25 @@ stockllantas.forEach(producto => {
         window.open(url, '_blank');
     });
 });
+
+
+// Seleccionar el botón
+const botonFlotante = document.getElementById('boton-flotante');
+
+// Mostrar el botón solo cuando se haya hecho scroll hacia abajo
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    botonFlotante.style.display = 'flex'; // Mostrar el botón
+  } else {
+    botonFlotante.style.display = 'none'; // Ocultar el botón
+  }
+});
+
+// Evento para regresar al inicio al hacer clic en el botón
+botonFlotante.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Desplazamiento suave
+  });
+});
+
