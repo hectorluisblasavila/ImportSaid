@@ -159,7 +159,24 @@
     box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.4);
 }
 
-
+.quantity-input {
+    width: 30px;
+    height: 20px;
+    font-size: 14px;    
+    color: #000000; /* Texto en azul */
+    background-color: #f9dc05; /* Fondo blanco */
+    border: none; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    outline: none; /* Sin borde al hacer clic */
+    
+  }
+   /* Deshabilitar las flechas (para navegadores compatibles) */
+   input[type="number"]::-webkit-inner-spin-button,
+   input[type="number"]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+   }
 
 .boton-agregar{
     padding: 5px;
