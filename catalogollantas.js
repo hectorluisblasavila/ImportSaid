@@ -7,6 +7,7 @@ stockllantas.forEach(producto => {
     div.innerHTML = `
     <a href="producto.html?id=${producto.codigo}" class="boton-ver">
         <img class="imagen" src="${producto.imagen}" alt="Imagen de la llanta">
+        </a>
         <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
         <h5 class="info">Ancho: ${producto.ancho}</h5>
         <h4 class="info">Perfil: ${producto.Perfil}</h4>
@@ -14,7 +15,7 @@ stockllantas.forEach(producto => {
         <p class="info">Marca: ${producto.marca}</p>
         <p class="info">Codigo: ${producto.codigo}</p>
         <p class="precioProducto info">Precio: S/.${Math.round(producto.precio)}</p>
-    </a>
+    
     <span class="info">Cantidad:</span>
     <input type="number" class="quantity-input" value="1" min="1">
   
@@ -43,7 +44,7 @@ stockllantas.forEach(producto => {
         - *Código:* ${producto.codigo}%0A
         - *Precio:* S/. ${Math.round(producto.precio)}.00%0A
         - *Cantidad:* ${cantidad}%0A
-        - *Total:* S/. ${total}.00%0A       
+        - *Total:* S/. ${total}.00%0A
         - *Imagen:* ${baseURL}${producto.imagen}%0A
         ¿Está disponible?`;
 
