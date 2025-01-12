@@ -14,7 +14,7 @@ stockllantas.forEach(producto => {
         <p class="info">PR: ${producto.PR}</p>
         <p class="info">Marca: ${producto.marca}</p>
         <p class="info">Codigo: ${producto.codigo}</p>
-        <p class="precioProducto info">Precio: S/.${Math.round(producto.precio)}</p>
+        <p class="precioProducto info">Precio: S/.${Math.round(producto.precio/5)*5}</p>
     
     <span class="info">Cantidad:</span>
     <input type="number" class="quantity-input" value="1" min="1">
@@ -30,7 +30,7 @@ stockllantas.forEach(producto => {
         // Obtener la cantidad seleccionada
     const cantidadInput = div.querySelector('.quantity-input');
     const cantidad = parseInt(cantidadInput.value);
-      const precioNoDecimales = Math.round(producto.precio);
+      const precioNoDecimales = Math.round(producto.precio/5)*5;
     // Calcular el total
     const total = cantidad * precioNoDecimales;
   
@@ -42,7 +42,7 @@ stockllantas.forEach(producto => {
         - *PR:* ${producto.PR}%0A
         - *Marca:* ${producto.marca}%0A
         - *Código:* ${producto.codigo}%0A
-        - *Precio:* S/. ${Math.round(producto.precio)}.00%0A
+        - *Precio:* S/. ${Math.round(producto.precio/5)*5}.00%0A
         - *Cantidad:* ${cantidad}%0A
         - *Total:* S/. ${total}.00%0A
         - *Imagen:* ${baseURL}${producto.imagen}%0A
