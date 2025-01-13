@@ -2,7 +2,8 @@
 const vendedores = [
     { dni: "12345678", clave: "clave123" },
     { dni: "miguelhuaman", clave: "said710" },
-    { dni: "hectorblas", clave: "locotes" }
+    { dni: "hectorblas", clave: "locotes" }, 
+{ dni: "Cecy", clave: "hco25" } 
   ];
   
   // Función para mostrar u ocultar el formulario de vendedor
