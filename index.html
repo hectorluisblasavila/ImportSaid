@@ -11,6 +11,7 @@
 	<script src="stockllantas.js" type="text/javascript" defer></script>
 	<script src="catalogo.js" type="text/javascript" defer></script>
 	<script src="catalogollantas.js" type="text/javascript" defer></script>
+	<script src="accesoAfiliados.js" type="text/javascript" defer></script>
 	<meta property="og:title" content="IMPORT SAID">
     <meta property="og:description" content="Nos dedicamos a la venta de llantas y aros.">
     <meta property="og:image" content="https://hectorluisblasavila.github.io/ImportSaid/productos/logo.png">
@@ -46,9 +47,22 @@
 	</div>
 
 
-		<div class="cajalogo">
-			
-				
+<div class="cajalogo">
+		
+		<!-- Ícono de perfil que al hacer clic muestra el formulario -->
+<div class="iconoPerfil" onclick="mostrarFormulario()">
+			<!-- Ícono de usuario de Font Awesome -->
+<i class="fas fa-user"></i>
+	<div class="vendedor" onclick="event.stopPropagation();">
+			   <!-- Formulario para ingresar DNI y Clave -->
+		 <input class="acceso" type="text" id="dni" placeholder="DNI">
+	 
+		 <input class="acceso" type="password" id="clave" placeholder="Clave">
+	
+		 <button class="acceso" onclick="validarAcceso()">Acceder</button>
+	 </div>
+</div>
+		
 					<img class="logo" src="productos/logo.png">
 					<div class="social-icons">
 						<a href="https://www.tiktok.com/@said.import" target="_blank" class="icon tiktok">

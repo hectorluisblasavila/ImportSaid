@@ -49,6 +49,73 @@
     
 }
 
+ /* Ocultamos los inputs y el formulario de vendedor por defecto */
+ .vendedor {
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    display: none;
+    position: absolute;
+    left: 50px; /* Alinea al lado izquierdo */
+    align-items: center;   
+    
+
+  }
+
+
+  .vendedor input {
+    font-size: 10px;
+    width: 80px;
+    height: 15px;
+  }
+
+  .vendedor button {
+    height: 15px;
+    width: 60px;
+    font-size: 10px;
+  }
+
+  .vendedor button:hover{
+    background-color: #ddd;
+    cursor: pointer;
+  }
+
+  /* Estilo para el icono de perfil */
+  .iconoPerfil {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    position: absolute;
+    left: 0; /* Alinea al lado izquierdo */
+  }
+
+  .iconoPerfil:hover {
+    color: #ddd;
+  }
+
+.acceso{
+    display: flex;
+    background-color: #f9dc05;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin: 5px;
+    text-align: center;
+    justify-content: center; /* Centrar verticalmente */
+    
+}
+.acceso::placeholder{
+    color: black;
+    font-family: sans-serif;
+    font-size: 10px;
+
+}
 .cajalogo{
     width: 100%;
     display: flex;
@@ -63,7 +130,14 @@
     height: 60px;
     padding: 5px;
 }
-
+.iconoPerfil{
+    display: flex;
+    background-color: transparent; /* Elimina el fondo */
+    font-size: 24px;
+    color: #f9dc05; /* Color negro */
+    
+    
+}
 .social-icons {
     display: flex;
     gap: 15px;
@@ -147,10 +221,11 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 50px;
 }
 
 .producto{
-    margin: 4px;
+    margin: 5px;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5%;
@@ -228,7 +303,12 @@
     
 }
 
+.precioProductoAfiliado { /* Ocultamos los precios de los vendedores por defecto */
+    display: none;
+    color:#fb1313;
 
+    
+} 
 
 #contenedor-aros{
     margin: 1%;
@@ -251,6 +331,7 @@
     justify-content: space-evenly;
     justify-items: center;    
 }
+
 
 
 header label{
