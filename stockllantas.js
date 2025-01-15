@@ -1,6 +1,6 @@
 const stockllantas = [
 
-    {codigo:"1557012HAID", Diametro:"12", marca:"HAIDA", ancho:"155", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1557012HAID.jpg", cantidad:"4", precio:"96"},
+    {codigo:"1557012HAID", Diametro:"12", marca:"HAIDA", ancho:"155", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1557012HAID.jpg", cantidad:"2", precio:"96"},
     {codigo:"15512ONYX", Diametro:"12", marca:"ONYX", ancho:"155", Perfil:"",PR:"", PCD:"", ET:"", imagen:"productos/15512ONYX.jpg", cantidad:"8", precio:"114"},
     {codigo:"15512BLACKHWK", Diametro:"12", marca:"BLACKHWK", ancho:"155", Perfil:"",PR:"", PCD:"", ET:"", imagen:"productos/15512BLACKHWK.jpg", cantidad:"2", precio:"138"},
     {codigo:"15512CHEN", Diametro:"12", marca:"CHENGSHANG C", ancho:"155", Perfil:"",PR:"8", PCD:"", ET:"", imagen:"productos/15512CHEN.jpg", cantidad:"2", precio:"138"},
@@ -18,18 +18,16 @@ const stockllantas = [
     {codigo:"1857013ANNAITE", Diametro:"13", marca:"ANNAITE", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013ANNAITE.jpg", cantidad:"2", precio:"132"},
     {codigo:"1857013RIDAN", Diametro:"13", marca:"RIDANZ R05", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013RIDAN.jpg", cantidad:"8", precio:"150"},
     {codigo:"1857013HAB", Diametro:"13", marca:"HABILEAD RS01", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013HAB.jpg", cantidad:"10", precio:"150"},
-    {codigo:"6.5013GOOD ", Diametro:"13", marca:"GOODYEAR TAXI", ancho:"6.5", Perfil:"",PR:"", PCD:"", ET:"", imagen:"productos/6.5013GOOD .jpg", cantidad:"2", precio:"198"},
     {codigo:"2056013RAPIDAS", Diametro:"13", marca:"RAPIDASH RS1", ancho:"205", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/2056013RAPIDAS.jpg", cantidad:"6", precio:"192"},
     {codigo:"2056013OVATION", Diametro:"13", marca:"OVATION", ancho:"205", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/2056013OVATION.jpg", cantidad:"10", precio:"146.4"},
-    {codigo:"1857013ROADW", Diametro:"13", marca:"ROADWING", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013ROADW.jpg", cantidad:"6", precio:"123.6"},
+    {codigo:"1857013ROADW", Diametro:"13", marca:"ROADWING", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013ROADW.jpg", cantidad:"4", precio:"123.6"},
     {codigo:"55013DEESTC", Diametro:"13", marca:"DEESTONE DE CARGA", ancho:"5.5", Perfil:"",PR:"12", PCD:"", ET:"", imagen:"productos/55013DEESTC.jpg", cantidad:"14", precio:"276"},
     {codigo:"1656014JOY", Diametro:"14", marca:"JOYROAD", ancho:"165", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/1656014JOY.jpg", cantidad:"9", precio:"114"},
-    {codigo:"1656514OVAT", Diametro:"14", marca:"OVATION ", ancho:"165", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1656514OVAT.jpg", cantidad:"13", precio:"116.4"},
+    {codigo:"1656514OVAT", Diametro:"14", marca:"OVATION ", ancho:"165", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1656514OVAT.jpg", cantidad:"12", precio:"116.4"},
     {codigo:"1656514ROKBL", Diametro:"14", marca:"ROKBLADE", ancho:"165", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1656514ROKBL.jpg", cantidad:"2", precio:"126"},
     {codigo:"1756514GOODYEARAS", Diametro:"14", marca:"GOOD YEAR ASURANCE ", ancho:"175", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1756514GOODYEARAS.jpg", cantidad:"4", precio:"216"},
-    {codigo:"1756514OVATION ", Diametro:"14", marca:"OVATION ", ancho:"175", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1756514OVATION .jpg", cantidad:"11", precio:"126"},
+    {codigo:"1756514OVATION ", Diametro:"14", marca:"OVATION ", ancho:"175", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1756514OVATION .jpg", cantidad:"10", precio:"126"},
     {codigo:"1756514ROAD", Diametro:"14", marca:"ROADWING", ancho:"175", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1756514ROAD.jpg", cantidad:"6", precio:"126"},
-    {codigo:"1756514TRI", Diametro:"14", marca:"TRIANGLE", ancho:"175", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1756514TRI.jpg", cantidad:"4", precio:"174"},
     {codigo:"1757014TRI", Diametro:"14", marca:"TRIANGLE", ancho:"175", Perfil:"70",PR:"6", PCD:"", ET:"", imagen:"productos/1757014TRI.jpg", cantidad:"14", precio:"180"},
     {codigo:"1757014ROADW", Diametro:"14", marca:"ROADWING", ancho:"175", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1757014ROADW.jpg", cantidad:"15", precio:"126"},
     {codigo:"1757014DULP", Diametro:"14", marca:"DUNLOP ORIGINAL ", ancho:"175", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1757014DULP.jpg", cantidad:"1", precio:"204"},
@@ -176,8 +174,11 @@ const stockllantas = [
     {codigo:"2856518MARSHALAT51", Diametro:"18", marca:"MARSHAL AT51", ancho:"285", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/2856518MARSHALAT51.jpg", cantidad:"4", precio:"780"},
     {codigo:"2756518ROADCM", Diametro:"18", marca:"ROADCRUZA MT ", ancho:"275", Perfil:"65",PR:"8", PCD:"", ET:"", imagen:"productos/2756518ROADCM.jpg", cantidad:"2", precio:"552"},
     {codigo:"2754520FORCETOUAT", Diametro:"20", marca:"FORCE TOURADOR AT ", ancho:"275", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2754520FORCETOUAT.jpg", cantidad:"4", precio:"432"},
-    {codigo:"2755021ZET", Diametro:"21", marca:"ZETA ANTARTICA", ancho:"275", Perfil:"50",PR:"", PCD:"", ET:"", imagen:"productos/2755021ZET.jpg", cantidad:"2", precio:"455"},
-    
+    {codigo:"2755021ZET", Diametro:"21", marca:"ZETA ANTARTICA", ancho:"275", Perfil:"50",PR:"", PCD:"", ET:"", imagen:"productos/2755021ZET.jpg", cantidad:"2", precio:"455"},    
+
+
+
+
 ];
 
 
