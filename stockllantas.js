@@ -184,29 +184,32 @@ const stockllantas = [
 
 
 const buscarllantas = () => {
-    const textoDiametro = document.getElementById('buscar-llantas').value.toUpperCase();  // Obtiene el valor de la búsqueda por diámetro
-    const textoAncho = document.getElementById('ancho-llantas').value.toUpperCase();  // Obtiene el valor de la búsqueda por ancho
-    const textoPerfil = document.getElementById('perfil-llantas').value.toUpperCase();
-
+    const textoDiametro = document.getElementById('buscar-llantas').value;  // Obtiene el valor de la búsqueda por diámetro
+    const textoAncho = document.getElementById('ancho-llantas').value;  // Obtiene el valor de la búsqueda por ancho
+    const textoPerfil = document.getElementById('perfil-llantas').value;
+    const textoMarca = document.getElementById('marca-llantas').value.toUpperCase();
 
     const contenedorProductos = document.getElementById('contenedor-llantas');  // Contenedor de llantas
     const productos = contenedorProductos.querySelectorAll(".producto");  // Selecciona todas las tarjetas de productos
 
     productos.forEach(producto => {
-        // Busca el diámetro y el ancho dentro de cada producto
+        // Busca el diámetro, ancho, perfil y marca dentro de cada producto
         const diametro = producto.querySelector("h3");  // Diametro dentro de h3
         const ancho = producto.querySelector("h5");  // Ancho dentro de h5
-        const Perfil = producto.querySelector("h4");
+        const Perfil = producto.querySelector("h4"); // perfil dentro de h4
+        const marca = producto.querySelector('h6'); //marca dentro de h6
 
         // Verifica si los valores coinciden con los criterios de búsqueda
-        const coincideDiametro = diametro ? diametro.textContent.toUpperCase().includes(textoDiametro) : false;
-        const coincideAncho = ancho ? ancho.textContent.toUpperCase().includes(textoAncho) : false;
-        const coincidePerfil = Perfil ? Perfil.textContent.toUpperCase().includes(textoPerfil) : false;
+        const coincideDiametro = diametro ? diametro.textContent.includes(textoDiametro) : false;
+        const coincideAncho = ancho ? ancho.textContent.includes(textoAncho) : false;
+        const coincidePerfil = Perfil ? Perfil.textContent.includes(textoPerfil) : false;
+        const coincideMarca = marca ? marca.textContent.toUpperCase().includes(textoMarca) : false;
 
         // Muestra el producto si coincide con ambos criterios de búsqueda o si alguno está vacío
         if ((textoDiametro === "" || coincideDiametro) && 
             (textoAncho === "" || coincideAncho) && 
-            (textoPerfil === "" || coincidePerfil)) {
+            (textoPerfil === "" || coincidePerfil) && 
+            (textoMarca === "" || coincideMarca)) {
             producto.style.display = "";  // Mostrar el producto
         } else {
             producto.style.display = "none";  // Ocultar el producto

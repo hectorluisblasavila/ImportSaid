@@ -12,10 +12,10 @@ stockllantas.forEach(producto => {
         <h5 class="info">Ancho: ${producto.ancho}</h5>
         <h4 class="info">Perfil: ${producto.Perfil}</h4>
         <p class="info">PR: ${producto.PR}</p>
-        <p class="info">Marca: ${producto.marca}</p>
+        <h6 class="info">Marca: ${producto.marca}</h6>
         <p class="info">Codigo: ${producto.codigo}</p>
         <p class="precioProducto info">Precio: S/.${Math.round(producto.precio/5)*5}</p>
-        <p class="precioProductoAfiliado info">Afiliado: S/.${Math.round(producto.precio*0.9/5)*5}</p>
+        <p class="precioProductoAfiliado info">Afiliado: S/.${Math.round(producto.precio*0.95/5)*5}</p>
     <span class="info">Cantidad:</span>
     <input type="number" class="quantity-input" value="1" min="1">
   
