@@ -57,7 +57,7 @@
     margin-top: 20px;
     display: none;
     position: absolute;
-    left: 28px; /* Alinea al lado izquierdo */
+    left: 30px; /* Alinea al lado izquierdo */
     align-items: center;   
     
 
@@ -216,16 +216,16 @@
 
 
 .productoall{
-    margin-top: 0%;
+   
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 50px;
+   
 }
 
 .producto{
-    margin: 5px;
+    margin: 2px;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5%;
@@ -325,9 +325,7 @@
     margin: 1%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 180px));
-    grid-template-rows: 30fr;
-    
+    grid-template-columns: repeat(auto-fill, minmax(165px, 165px));
     justify-content: space-evenly;
     justify-items: center;    
 }
