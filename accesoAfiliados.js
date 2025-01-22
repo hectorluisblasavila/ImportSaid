@@ -1,9 +1,16 @@
 // Lista de combinaciones de DNI y claves válidas
 const vendedores = [
-    { dni: "12345678", clave: "clave123" },
     { dni: "miguelhuaman", clave: "said710" },
-    { dni: "hectorblas", clave: "locotes" }, 
-{ dni: "Cecy", clave: "hco25" } 
+    { dni: "hectorblas", clave: "locotes" },
+    { dni: "douglasblas", clave: "pollo123" },
+    { dni: "favioblas", clave: "123pollo" },
+    { dni: "astridblas", clave: "mocosita" },
+    { dni: "shirleyblas", clave: "blas123" }, 
+    { dni: "Cecy", clave: "hco25" }, 
+    { dni: "luisblas", clave: "matienzo" }, 
+    { dni: "claudiaes", clave: "escobar123" }, 
+    { dni: "andreaes", clave: "123escobar" },
+    { dni: "claudiaza", clave: "ilusa123" }
   ];
   
   // Función para mostrar u ocultar el formulario de vendedor
