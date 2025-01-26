@@ -24,7 +24,6 @@ const stockllantas = [
     {codigo:"2056013RAPIDAS", Diametro:"13", marca:"RAPIDASH RS1", ancho:"205", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/2056013RAPIDAS.jpg", cantidad:"5", precio:"200"},
     {codigo:"2056013OVATION", Diametro:"13", marca:"OVATION", ancho:"205", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/2056013OVATION.jpg", cantidad:"10", precio:"170"},
     {codigo:"1857013ROADW", Diametro:"13", marca:"ROADWING", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013ROADW.jpg", cantidad:"3", precio:"125"},
-    {codigo:"1857013CENT", Diametro:"13", marca:"CENTARA", ancho:"185", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1857013CENT.jpg", cantidad:"-6", precio:""},
     {codigo:"55013DEESTC", Diametro:"13", marca:"DEESTONE DE CARGA", ancho:"5.5", Perfil:"",PR:"12", PCD:"", ET:"", imagen:"productos/55013DEESTC.jpg", cantidad:"13", precio:"280"},
     {codigo:"1656014JOY", Diametro:"14", marca:"JOYROAD", ancho:"165", Perfil:"60",PR:"", PCD:"", ET:"", imagen:"productos/1656014JOY.jpg", cantidad:"8", precio:"120"},
     {codigo:"1656514OVAT", Diametro:"14", marca:"OVATION ", ancho:"165", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1656514OVAT.jpg", cantidad:"11", precio:"125"},
@@ -182,7 +181,6 @@ const stockllantas = [
     {codigo:"2755021ZET", Diametro:"21", marca:"ZETA ANTARTICA", ancho:"275", Perfil:"50",PR:"", PCD:"", ET:"", imagen:"productos/2755021ZET.jpg", cantidad:"2", precio:"820"},
 
 
-    
 
     
 ];
