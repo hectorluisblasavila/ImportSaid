@@ -41,3 +41,25 @@ stockAros.forEach(producto => {
     window.open(url, '_blank');
   });
 });
+
+
+
+// Seleccionar el botón
+const botonFlotanterines = document.getElementById('boton-flotante-rines');
+
+// Mostrar el botón solo cuando se haya hecho scroll hacia abajo
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 200) {
+    botonFlotanterines.style.display = 'flex'; // Mostrar el botón
+  } else {
+    botonFlotanterines.style.display = 'none'; // Ocultar el botón
+  }
+});
+
+// Evento para regresar al inicio al hacer clic en el botón
+botonFlotanterines.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Desplazamiento suave
+  });
+});

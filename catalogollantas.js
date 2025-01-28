@@ -79,4 +79,3 @@ botonFlotante.addEventListener('click', () => {
     behavior: 'smooth' // Desplazamiento suave
   });
 });
-
