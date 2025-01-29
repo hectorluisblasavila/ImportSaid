@@ -41,8 +41,8 @@ const stockllantas = [
     {codigo:"1757014FORCEAT", Diametro:"14", marca:"FORCE TOURADOR AT", ancho:"175", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/1757014FORCEAT.jpg", cantidad:"10", precio:"210"},
     {codigo:"1757514LINGLONGAT", Diametro:"14", marca:"LINGLONG AT ", ancho:"175", Perfil:"75",PR:"", PCD:"", ET:"", imagen:"productos/1757514LINGLONGAT.jpg", cantidad:"2", precio:"210"},
     {codigo:"1856514GOO", Diametro:"14", marca:"GOODYEAR ASURANCE ", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514GOO.jpg", cantidad:"4", precio:"215"},
-    {codigo:"1856514COMFORSER", Diametro:"14", marca:"COMFORSER", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514COMFORSER.jpg", cantidad:"12", precio:"140"},
-    {codigo:"1856514ZEXTOUR", Diametro:"14", marca:"ZEXTOUR", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514ZEXTOUR.jpg", cantidad:"8", precio:"150"},
+    {codigo:"1856514COMFORSER", Diametro:"14", marca:"COMFORSER", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514COMFORSER.jpg", cantidad:"14", precio:"140"},
+    {codigo:"1856514ZEXTOUR", Diametro:"14", marca:"ZEXTOUR", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514ZEXTOUR.jpg", cantidad:"6", precio:"150"},
     {codigo:"1856514HABI206", Diametro:"14", marca:"HABILEAD", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514HABI206.jpg", cantidad:"2", precio:"145"},
     {codigo:"1856514HIL", Diametro:"14", marca:"HILO", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514HIL.jpg", cantidad:"2", precio:"155"},
     {codigo:"1856514TRIAN", Diametro:"14", marca:"TRIANGLE", ancho:"185", Perfil:"65",PR:"", PCD:"", ET:"", imagen:"productos/1856514TRIAN.jpg", cantidad:"8", precio:"180"},
@@ -130,6 +130,7 @@ const stockllantas = [
     {codigo:"2657016HABMT", Diametro:"16", marca:"HABILEAD MT", ancho:"265", Perfil:"70",PR:"10", PCD:"", ET:"", imagen:"productos/2657016HABMT.jpg", cantidad:"2", precio:"460"},
     {codigo:"2657016DEEST", Diametro:"16", marca:"DEESTONE MT", ancho:"265", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/2657016DEEST.jpg", cantidad:"2", precio:"650"},
     {codigo:"2657016BRIDGESTHT", Diametro:"16", marca:"BRIDGESTONE HT", ancho:"265", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/2657016BRIDGESTHT.jpg", cantidad:"2", precio:"500"},
+    {codigo:"2657016AOQIAT", Diametro:"16", marca:"AOQUISHI AT ", ancho:"265", Perfil:"70",PR:"10", PCD:"", ET:"", imagen:"productos/2657016AOQIAT.jpg", cantidad:"1", precio:"480"},
     {codigo:"2657016WINDFORCEAT ", Diametro:"16", marca:"WINDFORCE AT", ancho:"265", Perfil:"70",PR:"", PCD:"", ET:"", imagen:"productos/2657016WINDFORCEAT .jpg", cantidad:"4", precio:"450"},
     {codigo:"2054517GOODYEAR", Diametro:"17", marca:"GOODYEAR", ancho:"205", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2054517GOODYEAR.jpg", cantidad:"4", precio:"380"},
     {codigo:"2154517FEDER", Diametro:"17", marca:"FEDERAL 595", ancho:"215", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2154517FEDER.jpg", cantidad:"2", precio:"350"},
@@ -179,7 +180,6 @@ const stockllantas = [
     {codigo:"2454519HAMKOOK", Diametro:"19", marca:"HAMKOOK", ancho:"245", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2454519HAMKOOK.jpg", cantidad:"2", precio:"890"},
     {codigo:"2754520FORCETOUAT", Diametro:"20", marca:"FORCE TOURADOR AT ", ancho:"275", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2754520FORCETOUAT.jpg", cantidad:"4", precio:"780"},
     {codigo:"2755021ZET", Diametro:"21", marca:"ZETA ANTARTICA", ancho:"275", Perfil:"50",PR:"", PCD:"", ET:"", imagen:"productos/2755021ZET.jpg", cantidad:"2", precio:"900"},
-
 
     
 ];
