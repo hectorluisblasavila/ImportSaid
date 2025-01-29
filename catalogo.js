@@ -6,7 +6,7 @@ stockAros.forEach(producto => {
   div.classList.add('producto');
   div.innerHTML = `
     <img class="imagen" src=${producto.imagen} alt="">
-    <h3 class="titulop info">Diametro: ${producto.medida}</h3>
+    <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
     <h5 class="info" id="anchoaros">Ancho: ${producto.ancho}</h5>
     <p class="info">PCD: ${producto.PCD}</p>
     <p class="info">ET: ${producto.ET}</p>
