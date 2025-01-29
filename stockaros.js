@@ -12,7 +12,7 @@ const stockAros = [
     {codigo:"SAID09", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID09.jpg", cantidad:"1", precio:"930"},
     {codigo:"SAID10", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID10.jpg", cantidad:"1", precio:"930"},
     {codigo:"SAID11", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID11.jpg", cantidad:"1", precio:"930"},
-	{codigo:"SAID12", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID12.jpg", cantidad:"1", precio:"930"},
+    {codigo:"SAID12", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID12.jpg", cantidad:"1", precio:"930"},
     {codigo:"SAID13", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID13.jpg", cantidad:"1", precio:"930"},
     {codigo:"SAID14", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID14.jpg", cantidad:"1", precio:"930"},
     {codigo:"SAID15", Diametro:"14", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"20", imagen:"productos/SAID15.jpg", cantidad:"1", precio:"930"},
