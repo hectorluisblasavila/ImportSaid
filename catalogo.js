@@ -13,6 +13,7 @@ stockAros.forEach(producto => {
     <p class="info">Marca: ${producto.marca}</p>
     <p class="info">Codigo: ${producto.codigo}</p>
     <p class="precioProducto info">Precio: S/.${producto.precio}.00</p>
+    <p class="precioProductoAfiliado info">Afiliado: S/.${Math.round(producto.precio*0.96/5)*5}</p>
     <button class="boton-agregar">WhatsApp</button>
   `;
   contenedorProductos.appendChild(div);
@@ -22,7 +23,7 @@ stockAros.forEach(producto => {
   botonAgregar.addEventListener('click', () => {
     // Crear el mensaje de WhatsApp
     const mensaje = `Hola, estoy interesado en el siguiente producto:%0A
-    - *Diametro:* ${producto.Diametro}%0A
+    - *Diametro:* ${producto.medida}%0A
     - *Ancho:* ${producto.ancho}%0A
     - *PCD:* ${producto.PCD}%0A
     - *ET:* ${producto.ET}%0A
