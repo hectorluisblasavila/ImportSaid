@@ -123,7 +123,7 @@ const buscar = () => {
             ? ancho.textContent.toUpperCase().includes(textoAncho) 
             : false;
         const coincidePernos = pernos 
-            ? pernos.textContent.toUpperCase().startsWith(textoPernos) 
+            ? pernos.textContent.toUpperCase().includes(textoPernos) 
             : false;
 
         // Mostrar solo si todos los filtros coinciden o están vacíos
