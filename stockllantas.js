@@ -180,7 +180,6 @@ const stockllantas = [
     {codigo:"2454519HAMKOOK", Diametro:"19", marca:"HAMKOOK", ancho:"245", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2454519HAMKOOK.jpg", cantidad:"2", precio:"890"},
     {codigo:"2754520FORCETOUAT", Diametro:"20", marca:"FORCE TOURADOR AT ", ancho:"275", Perfil:"45",PR:"", PCD:"", ET:"", imagen:"productos/2754520FORCETOUAT.jpg", cantidad:"4", precio:"780"},
     {codigo:"2755021ZET", Diametro:"21", marca:"ZETA ANTARTICA", ancho:"275", Perfil:"50",PR:"", PCD:"", ET:"", imagen:"productos/2755021ZET.jpg", cantidad:"2", precio:"900"},
-
     
 ];
 
