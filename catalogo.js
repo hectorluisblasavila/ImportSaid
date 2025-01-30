@@ -8,7 +8,7 @@ stockAros.forEach(producto => {
     <img class="imagen" src=${producto.imagen} alt="">
     <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
     <h5 class="info" id="anchoaros">Ancho: ${producto.ancho}</h5>
-    <p class="info">PCD: ${producto.PCD}</p>
+    <h6 class="info">PCD: ${producto.PCD}</h6>
     <p class="info">ET: ${producto.ET}</p>
     <p class="info">Marca: ${producto.marca}</p>
     <p class="info">Codigo: ${producto.codigo}</p>
