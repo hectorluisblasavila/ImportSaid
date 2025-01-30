@@ -107,23 +107,29 @@ const stockAros = [
 const buscar = () => {
     const textoDiametro = document.getElementById('buscar-producto').value.toUpperCase();
     const textoAncho = document.getElementById('ancho-aros').value.toUpperCase();
+    const textoPernos = document.getElementById('pernos-aros').value.toUpperCase();
     const contenedorProductos = document.getElementById('contenedor-aros');
     const productos = contenedorProductos.querySelectorAll(".producto");
 
     productos.forEach(producto => {
         const diametro = producto.querySelector("h3");
         const ancho = producto.querySelector("h5");
+        const pernos = producto.querySelector("h6"); // Ahora selecciona el h6 que contiene PCD
 
-        const coincideDiametro = diametro
+        const coincideDiametro = diametro 
             ? diametro.textContent.toUpperCase().includes(textoDiametro) 
             : false;
         const coincideAncho = ancho 
             ? ancho.textContent.toUpperCase().includes(textoAncho) 
             : false;
+        const coincidePernos = pernos 
+            ? pernos.textContent.toUpperCase().startsWith(textoPernos) 
+            : false;
 
-        // Mostrar solo si ambos filtros coinciden
-        if ((textoDiametro === "" || coincideDiametro) && 
-            (textoAncho === "" || coincideAncho)) {
+        // Mostrar solo si todos los filtros coinciden o están vacíos
+        if ((textoDiametro === "" || coincideDiametro) &&
+            (textoAncho === "" || coincideAncho) &&
+            (textoPernos === "" || coincidePernos)) {
             producto.style.display = "";
         } else {
             producto.style.display = "none";
