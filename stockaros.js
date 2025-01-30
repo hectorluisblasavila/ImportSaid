@@ -2,7 +2,7 @@ const stockAros = [
 	
 
 
-    
+
 
     {codigo:"SAID01", Diametro:"13", marca:"romax", ancho:"6", Perfil:"",PR:"", PCD:"4x100/114", ET:"0", imagen:"productos/SAID01.jpg", cantidad:"1", precio:"850"},
     {codigo:"SAID02", Diametro:"14", marca:"romax", ancho:"7", Perfil:"",PR:"", PCD:"4x100/114", ET:"0", imagen:"productos/SAID02.jpg", cantidad:"1", precio:"930"},
@@ -114,21 +114,20 @@ const buscar = () => {
     productos.forEach(producto => {
         const diametro = producto.querySelector("h3");
         const ancho = producto.querySelector("h5");
-        const pernos = producto.querySelector("h6"); // Ahora selecciona el h6 que contiene PCD
+        const pernos = producto.querySelector("h6");
 
-        const coincideDiametro = diametro 
+        const coincideDiametro = diametro
             ? diametro.textContent.toUpperCase().includes(textoDiametro) 
             : false;
         const coincideAncho = ancho 
             ? ancho.textContent.toUpperCase().includes(textoAncho) 
             : false;
-        const coincidePernos = pernos 
+            const coincidePernos = pernos
             ? pernos.textContent.toUpperCase().includes(textoPernos) 
             : false;
-
-        // Mostrar solo si todos los filtros coinciden o están vacíos
-        if ((textoDiametro === "" || coincideDiametro) &&
-            (textoAncho === "" || coincideAncho) &&
+        // Mostrar solo si ambos filtros coinciden
+        if ((textoDiametro === "" || coincideDiametro) && 
+            (textoAncho === "" || coincideAncho) && 
             (textoPernos === "" || coincidePernos)) {
             producto.style.display = "";
         } else {
@@ -136,3 +135,39 @@ const buscar = () => {
         }
     });
 };
+
+//este codigo permite que el usuario solo ingrese numero en el rango real de los vehiculos de 4 a 6
+//muestra una alerta si intentan poner otro valor
+
+document.getElementById('pernos-aros').addEventListener('input', function () {
+    let valor = this.value.replace(/\D/g, ''); // Elimina todo lo que no sea número
+
+    if (valor.length > 1) { 
+        valor = valor[0]; // Solo deja el primer número ingresado
+    }
+
+    if (!/^[4-6]$/.test(valor) && valor !== '') { 
+        alert("Solo números 4, 5 o 6.");
+        valor = ''; // Borra el input si el número no es válido
+    }
+
+    this.value = valor; // Asigna el valor limpio al input
+});
+
+
+//solo permite ingresar numeros entre un rando de 12 a 22
+
+document.getElementById('buscar-producto').addEventListener('input', function () {
+    let valor = this.value.replace(/\D/g, ''); // Elimina todo lo que no sea número
+
+    if (valor.length > 2) { 
+        valor = valor.slice(0, 2); // Solo deja los primeros dos dígitos
+    }
+
+    if (valor.length === 2 && (parseInt(valor) < 12 || parseInt(valor) > 22)) { 
+        alert("Solo se permiten números entre 12 y 22.");
+        valor = ''; // Borra el input si el número no está en el rango
+    }
+
+    this.value = valor; // Asigna el valor limpio al input
+});
