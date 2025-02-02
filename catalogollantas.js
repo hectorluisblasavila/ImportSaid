@@ -5,9 +5,9 @@ stockllantas.forEach(producto => {
     const div = document.createElement("div");
     div.classList.add('producto');
     div.innerHTML = `
-    <a href="producto.html?id=${producto.codigo}" class="boton-ver">
+    <a href="producto.html?id=${producto.codigo}" class="boton-ver"> </a>
         <img class="imagen" src="${producto.imagen}" alt="Imagen de la llanta">
-        </a>
+       
         <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
         <h5 class="info">Ancho: ${producto.ancho}</h5>
         <h4 class="info">Perfil: ${producto.Perfil}</h4>
