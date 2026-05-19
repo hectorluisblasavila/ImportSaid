@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalle del Producto | Tirux</title>
+    <link rel="stylesheet" href="producto.css?v=1.0.12" />
+    <script src="catalogollantas.js?v=1.0.9"></script> 
+    <script src="stockllantas.js?v=1.0.9"></script> 
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="productos/logo.png" alt="Tirux Logo" id="header-logo">
+                </a>
+            </div>
+
+           
+
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Inicio</a>
+                
+                
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="breadcrumbs">
+            <a href="index.html">Catálogo</a> > <span id="breadcrumb-product">Cargando...</span>
+        </nav>
+
+        <div id="producto-detail">
+            <div class="loading-state">
+                <p>Buscando llanta en el inventario...</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="nav-productos-filtrados">
+    <button id="btn-prod-prev" class="nav-f-btn">‹</button>
+    <button id="btn-prod-next" class="nav-f-btn">›</button>
+</div>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Tirux Llantas - Perú. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="producto.js?v=1.0.12"></script>
+</body>
+</html>

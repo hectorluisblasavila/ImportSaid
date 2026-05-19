@@ -5,7 +5,9 @@ stockAros.forEach(producto => {
   const div = document.createElement("div");
   div.classList.add('producto');
   div.innerHTML = `
-    <img class="imagen" src=${producto.imagen} alt="">
+
+  <a href="productoAros.html?id=${producto.codigo}" class="boton-ver">
+    <img class="imagen" src=${producto.imagen} alt="${producto.alt}">
     <h3 class="titulop info">Diametro: ${producto.Diametro}</h3>
     <h5 class="info" id="anchoaros">Ancho: ${producto.ancho}</h5>
     <h6 class="info">PCD: ${producto.PCD}</h6>
@@ -13,7 +15,8 @@ stockAros.forEach(producto => {
     <p class="info">Marca: ${producto.marca}</p>
     <p class="info">Codigo: ${producto.codigo}</p>
     <p class="precioProducto info">Precio: S/.${producto.precio}.00</p>
-    <p class="precioProductoAfiliado info">Afiliado: S/.${Math.round(producto.precio*0.96/5)*5}</p>
+    </a>
+    <p class="precioProductoAfiliado info">Afiliado: S/.${Math.round(producto.precio*0.947/5)*5}</p>
     <button class="boton-agregar">WhatsApp</button>
   `;
   contenedorProductos.appendChild(div);

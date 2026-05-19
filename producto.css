@@ -1,0 +1,380 @@
+:root {
+    --color-fondo: #f9f9f9;
+    --color-principal: #2a9d8f;
+    --color-secundario: #264653;
+    --color-texto: #333;
+    --font-base: 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: var(--color-fondo);
+    font-family: var(--font-base);
+    color: var(--color-texto);
+    
+  }
+
+
+
+
+   h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--color-secundario);
+    text-align: center; /* Centra el texto */
+    margin-top: 10px;    /* Añade separación hacia arriba */
+  }
+
+   p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  .pedir-whatsapp {
+    background: var(--color-principal);
+    color: #fff;
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+    max-width: fit-content;
+    text-align: center;
+  }
+
+  .pedir-whatsapp:hover {
+    background: #21867a;
+  }
+
+  @media (max-width: 768px) {
+    #producto-rines {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+     h2 {
+        align-items: center;
+      font-size: 1.6rem;
+    }
+
+     p {
+        align-items: center;
+      font-size: 1rem;
+    }
+  }
+
+
+
+/* --- COMPORTAMIENTO DE UNA FOTO A LA VEZ --- */
+.galeria-deslizable {
+    display: flex;
+    overflow-x: hidden; /* Evita que se vean las demás fotos */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.foto-slide {
+    min-width: 100%; /* Ocupa todo el contenedor, empujando a las otras */
+    width: 100%;
+    height: auto;
+    scroll-snap-align: start;
+    object-fit: contain;
+}
+
+/* --- DISEÑO DE DOS COLUMNAS (PC Y CELULAR HORIZONTAL) --- */
+@media (min-width: 480px) and (orientation: landscape), (min-width: 992px) {
+    .producto-contenedor-flex {
+        display: flex;
+        align-items: flex-start; /* Alinea arriba */
+        gap: 30px;               /* Espacio entre foto y texto */
+        padding: 20px;
+    }
+
+    .galeria-wrapper {
+        flex: 0 0 50%;           /* La galería ocupa la mitad del ancho */
+        max-width: 600px;        /* Evita que sea gigante en monitores */
+    }
+
+    .informacion-producto {
+        flex: 1;                 /* La descripción ocupa el resto */
+        text-align: left;        /* Mejor lectura en PC */
+    }
+}
+
+/* Estilo para los botones (asegurar posición) */
+.galeria-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+
+.btn-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado vertical exacto */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+    color: #333; /* Icono gris oscuro */
+    border: none;
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%; /* Botón circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    
+    /* Transición suave para el efecto Hover */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Evita que el usuario seleccione el texto de la flecha al hacer clic rápido */
+    user-select: none;
+}
+
+/* Efecto al pasar el mouse */
+.btn-flecha:hover {
+    background-color: #ffffff;
+    color: #000;
+    transform: translateY(-50%) scale(1.1); /* Crece un poquito */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto al hacer clic */
+.btn-flecha:active {
+    transform: translateY(-50%) scale(0.95); /* Se hunde ligeramente */
+}
+
+/* Ajuste de posición para que no estén pegadas al borde */
+.btn-flecha[style*="left"] {
+    left: 15px !important;
+}
+
+.btn-flecha[style*="right"] {
+    right: 15px !important;
+}
+
+/* Opcional: Hacerlas un poco más pequeñas en móviles */
+@media (max-width: 480px) {
+    .btn-flecha {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 0.7); /* Más transparentes en móvil */
+    }
+}
+
+/* Botón Profesional */
+.btn-copiar {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    transition: all 0.3s ease; /* Animación suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-copiar:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-1px);
+}
+
+/* Estado cuando ya se hizo clic (Copiado) */
+.btn-copiar.copiado {
+    background-color: #e8f5e9; /* Verde muy clarito */
+    border-color: #a5d6a7;
+    opacity: 0.7; /* Baja la opacidad */
+    transform: scale(0.95); /* Se encoge un poquito */
+}
+
+
+.quantity-input {
+    width: 30px;
+    height: 20px;
+    font-size: 14px;    
+    color: #000000; /* Texto en azul */
+    background-color: #ffffff; /* Fondo blanco */
+    border: none; /* Borde azul */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    outline: none; /* Sin borde al hacer clic */
+    
+  }
+
+    /* Deshabilitar las flechas (para navegadores compatibles) */
+   input[type="number"]::-webkit-inner-spin-button,
+   input[type="number"]::-webkit-outer-spin-button {
+     appearance: none;
+     margin: 0;
+   }
+
+
+
+
+   /* --- VARIABLES DE COLOR (Estilo Tirux) --- */
+:root {
+    --primario: #ff4500;    /* Naranja vibrante */
+    --oscuro: #1a1a1a;      /* Negro mate */
+    --gris-fondo: #f4f4f4;
+    --blanco: #ffffff;
+    --texto: #333333;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--gris-fondo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+.main-header {
+    background-color: #004373;
+    color: var(--blanco);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 45px;
+    display: block;
+}
+
+
+
+
+/* Navegación */
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+
+
+.btn-whatsapp {
+    background-color: #25d366;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* --- CONTENEDOR DE PRODUCTO --- */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.breadcrumbs {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.breadcrumbs a {
+    color: var(--primario);
+    text-decoration: none;
+}
+
+
+
+
+
+/* --- FOOTER --- */
+.main-footer {
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    background: #004373;
+    color: #ffffff;
+}
+
+/* --- RESPONSIVO (Móviles) --- */
+@media (max-width: 768px) {
+    .header-container {
+        
+        gap: 1rem;
+    }
+    
+    .search-bar {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .producto-flex {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        padding: 1rem;
+    }
+
+    .col-info h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+.nav-f-btn {
+    position: fixed;
+    top: 75%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 20px 10px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1000;
+    border-radius: 8px;
+}
+#btn-prod-prev { left: 5px; }
+#btn-prod-next { right: 5px; }
+
+
+

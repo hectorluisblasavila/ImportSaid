@@ -1,19 +1,19 @@
-{     "id": "/",
-    "name": "ImportsAid",
-    "short_name": "ImportsAid",
-    "start_url": "/",
+{     "id": "index.html",
+    "name": "TIRUX",
+    "short_name": "TIRUX",
+    "start_url": "./index.html",
     "display": "standalone",
-    "theme_color": "#000000",
-  "background_color": "#000000",
+    "theme_color": "#064571",
+  "background_color": "#064571",
   
     "icons": [
       {
-        "src": "/productos/icon2.png",
+        "src": "productos/icon2.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/productos/icon.png",
+        "src": "productos/icon.png",
         "sizes": "512x512",
         "type": "image/png"
       }
