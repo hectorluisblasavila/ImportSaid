@@ -245,24 +245,71 @@ function actualizarControlesPaginacion() {
 
     if (totalPaginas <= 1) return;
 
-    for (let i = 1; i <= totalPaginas; i++) {
-        const crearBoton = (n) => {
-            const btn = document.createElement('button');
-            btn.innerText = n;
-            btn.className = (n === paginaActual) ? 'btn-pag activo' : 'btn-pag';
-            btn.onclick = () => {
-                paginaActual = n;
+    // --- CONFIGURACIÓN DEL RANGO DINÁMICO ---
+    const maxBotonesVisibles = 3; // Cuántos números se verán a los lados
+    let paginaInicio = Math.max(1, paginaActual - Math.floor(maxBotonesVisibles / 2));
+    let paginaFin = paginaInicio + maxBotonesVisibles - 1;
+
+    if (paginaFin > totalPaginas) {
+        paginaFin = totalPaginas;
+        paginaInicio = Math.max(1, paginaFin - maxBotonesVisibles + 1);
+    }
+
+    // Función interna para fabricar botones rápidamente
+    const crearBoton = (texto, destinoPagina, claseExtra = '') => {
+        const btn = document.createElement('button');
+        btn.innerText = texto;
+        btn.className = (destinoPagina === paginaActual && !claseExtra) ? 'btn-pag activo' : `btn-pag ${claseExtra}`;
+        
+        // Deshabilitar si no tiene sentido hacer click (ej: Anterior estando en la pág 1)
+        if (destinoPagina === paginaActual && claseExtra) {
+            btn.disabled = true;
+            btn.style.opacity = "0.5";
+            btn.style.cursor = "not-allowed";
+        }
+
+        btn.onclick = () => {
+            if (destinoPagina !== paginaActual) {
+                paginaActual = destinoPagina;
                 renderizarPagina(paginaActual);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            };
-            return btn;
+            }
         };
+        return btn;
+    };
 
-        navTop.appendChild(crearBoton(i));
-        navBottom.appendChild(crearBoton(i));
-    }
+    // --- AGREGAR LOS BOTONES A AMBOS CONTENEDORES ---
+    [navTop, navBottom].forEach(nav => {
+        // 1. Botón ir al Inicio (<<) y Anterior (<)
+        nav.appendChild(crearBoton('<<', 1, paginaActual === 1 ? 'btn-nav' : ''));
+        nav.appendChild(crearBoton('<', Math.max(1, paginaActual - 1), paginaActual === 1 ? 'btn-nav' : ''));
+
+        // 2. Indicador de "..." si hay páginas ocultas al inicio
+        if (paginaInicio > 1) {
+            const elipsis = document.createElement('span');
+            elipsis.innerText = '...';
+            elipsis.style.padding = '0 5px';
+            nav.appendChild(elipsis);
+        }
+
+        // 3. Los botones numéricos dinámicos
+        for (let i = paginaInicio; i <= paginaFin; i++) {
+            nav.appendChild(crearBoton(i, i));
+        }
+
+        // 4. Indicador de "..." si hay páginas ocultas al final
+        if (paginaFin < totalPaginas) {
+            const elipsis = document.createElement('span');
+            elipsis.innerText = '...';
+            elipsis.style.padding = '0 5px';
+            nav.appendChild(elipsis);
+        }
+
+        // 5. Botón Siguiente (>) y Fin (>>)
+        nav.appendChild(crearBoton('>', Math.min(totalPaginas, paginaActual + 1), paginaActual === totalPaginas ? 'btn-nav' : ''));
+        nav.appendChild(crearBoton('>>', totalPaginas, paginaActual === totalPaginas ? 'btn-nav' : ''));
+    });
 }
-
 /**
  Lógica del Botón Flotante
  */
