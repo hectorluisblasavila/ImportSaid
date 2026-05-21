@@ -62,9 +62,9 @@ div.innerHTML = `
         <div class="contenedor-imagen">
             ${badgeAgotado}
             <img class="imagen ${claseExtraImagen}" src="${producto.imagenes[0]}" alt="${producto.alt}">
-        <div class="burbuja-stock b-izquierda precioProductoAfiliado locales">T: ${producto.Tirux}</div>
+        <div class="burbuja-stock b-izquierda precioProductoAfiliado locales">P: ${producto.S710}</div>
             
-            <div class="burbuja-stock b-derecha precioProductoAfiliado locales">L: ${producto.LlantasLarco}</div>
+            <div class="burbuja-stock b-derecha precioProductoAfiliado locales">S: ${producto.S1943}</div>
              <div class="moneda-comision " title="Tu comisión">
                 <span class="simbolo-moneda ">S/</span>${producto.comision}
             </div>
