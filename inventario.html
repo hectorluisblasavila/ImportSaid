@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario | IMPORT SAID</title>
+
+    <link rel="stylesheet" href="inventario.css?v=1.0.0">
+</head>
+
+<body>
+
+<header class="header">
+    <div>
+        <h1>📦 INVENTARIO</h1>
+        <span>IMPORT SAID</span>
+    </div>
+
+    <button id="btnCerrar">Cerrar sesión</button>
+</header>
+
+
+<main class="contenedor">
+
+    <!-- BUSCADOR -->
+    <section class="buscador-card">
+
+        <label>Buscar producto</label>
+
+        <input
+            type="text"
+            id="buscar"
+            autocomplete="off"
+            placeholder="Ej: 1856515TRI"
+        >
+
+        <div id="contador"></div>
+
+        <div id="sugerencias"></div>
+
+    </section>
+
+
+    <!-- PRODUCTO SELECCIONADO -->
+    <section id="productoPanel" class="producto-card oculto">
+
+        <div class="producto-header">
+            <div>
+                <h2 id="tituloProducto">Producto</h2>
+                <span id="codigoProducto"></span>
+            </div>
+
+            <span id="estadoProducto"></span>
+        </div>
+
+
+        <div class="grid">
+
+            <div>
+                <label>Medida</label>
+                <input id="medida" type="text">
+            </div>
+
+            <div>
+                <label>Diámetro</label>
+                <input id="diametro" type="text">
+            </div>
+
+            <div>
+                <label>Ancho</label>
+                <input id="ancho" type="text">
+            </div>
+
+            <div>
+                <label>Perfil</label>
+                <input id="perfil" type="text">
+            </div>
+
+            <div>
+                <label>PR</label>
+                <input id="pr" type="text">
+            </div>
+
+            <div>
+                <label>PCD</label>
+                <input id="pcd" type="text">
+            </div>
+
+            <div>
+                <label>ET</label>
+                <input id="et" type="text">
+            </div>
+
+            <div>
+                <label>Marca</label>
+                <input id="marca" type="text">
+            </div>
+
+            <div>
+                <label>Modelo</label>
+                <input id="modelo" type="text">
+            </div>
+
+            <div>
+                <label>IC/IV</label>
+                <input id="iciv" type="text">
+            </div>
+
+            <div>
+                <label>Treadwear</label>
+                <input id="treadwear" type="text">
+            </div>
+
+            <div>
+                <label>Tracción / Temperatura</label>
+                <input id="traccion" type="text">
+            </div>
+
+            <div>
+                <label>Procedencia</label>
+                <input id="procedencia" type="text">
+            </div>
+
+        </div>
+
+
+        <!-- INVENTARIO -->
+        <div class="inventario-box">
+
+            <div>
+                <label>Cantidad contada</label>
+
+                <div class="cantidad-control">
+                    <button id="menos">−</button>
+
+                    <input
+                        type="number"
+                        id="cantidad"
+                        value="0"
+                        min="0"
+                    >
+
+                    <button id="mas">+</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="acciones">
+
+            <button
+                id="btnGuardar"
+                class="btn-principal">
+                💾 Guardar inventario
+            </button>
+
+            <button
+                id="btnNuevo"
+                class="btn-secundario">
+                ➕ Nuevo producto
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- NUEVO PRODUCTO -->
+    <section id="nuevoPanel" class="producto-card oculto">
+
+        <h2>➕ Registrar nuevo producto</h2>
+
+        <p class="ayuda">
+            Ingresa el código que tú utilizas.
+            No se generará ningún código automáticamente.
+        </p>
+
+        <div class="grid">
+
+            <div class="campo-completo">
+                <label>Código</label>
+                <input id="nuevoCodigo" placeholder="Ej: 1856515TRI">
+            </div>
+
+            <div>
+                <label>Medida</label>
+                <input id="nuevoMedida">
+            </div>
+
+            <div>
+                <label>Diámetro</label>
+                <input id="nuevoDiametro">
+            </div>
+
+            <div>
+                <label>Ancho</label>
+                <input id="nuevoAncho">
+            </div>
+
+            <div>
+                <label>Perfil</label>
+                <input id="nuevoPerfil">
+            </div>
+
+            <div>
+                <label>PR</label>
+                <input id="nuevoPR">
+            </div>
+
+            <div>
+                <label>Marca</label>
+                <input id="nuevoMarca">
+            </div>
+
+            <div>
+                <label>Modelo</label>
+                <input id="nuevoModelo">
+            </div>
+
+            <div>
+                <label>IC/IV</label>
+                <input id="nuevoICIV">
+            </div>
+
+            <div>
+                <label>Treadwear</label>
+                <input id="nuevoTreadwear">
+            </div>
+
+            <div>
+                <label>Procedencia</label>
+                <input id="nuevoProcedencia">
+            </div>
+
+            <div>
+                <label>Cantidad inicial</label>
+                <input id="nuevoCantidad" type="number" min="0" value="0">
+            </div>
+
+        </div>
+
+        <div class="acciones">
+
+            <button
+                id="btnGuardarNuevo"
+                class="btn-principal">
+                💾 Registrar producto
+            </button>
+
+            <button
+                id="btnCancelarNuevo"
+                class="btn-secundario">
+                Cancelar
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <div id="mensaje"></div>
+
+</main>
+
+
+<script src="inventario.js?v=1.0.0"></script>
+
+</body>
+</html>
