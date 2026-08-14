@@ -133,94 +133,300 @@ async function iniciarInventario() {
    CARGAR CATÁLOGO
 ===================================================== */
 
-async function cargarCatalogoDesdeServidor() {
+function cargarCatalogoDesdeServidor() {
 
-    try {
+    return new Promise((resolve) => {
 
         mostrarMensaje(
             "Cargando catálogo..."
         );
 
-
-        const respuesta =
-            await fetch(
-                API_URL +
-                "?accion=catalogo"
+        const callbackName =
+            "IMPORT_SAID_catalogo_" +
+            Date.now() +
+            "_" +
+            Math.floor(
+                Math.random() * 100000
             );
 
+        let terminado = false;
+        let script = null;
 
-        const data =
-            await respuesta.json();
 
+        function terminar(exito) {
 
-        if (
-            data.status !==
-            "success"
-        ) {
+            if (terminado) {
+                return;
+            }
 
-            throw new Error(
-                data.mensaje ||
-                "No se pudo cargar catálogo"
-            );
+            terminado = true;
 
+            try {
+                delete window[callbackName];
+            } catch (e) {}
+
+            if (
+                script &&
+                script.parentNode
+            ) {
+
+                script.parentNode.removeChild(
+                    script
+                );
+
+            }
+
+            resolve(exito);
         }
 
 
-        catalogo =
-            data.productos || [];
+        /*
+         * Apps Script llamará a esta función
+         * cuando entregue el catálogo.
+         */
+
+        window[callbackName] =
+            function(data) {
+
+                try {
+
+                    if (
+                        !data ||
+                        data.status !== "success"
+                    ) {
+
+                        throw new Error(
+                            data &&
+                            data.mensaje
+                                ? data.mensaje
+                                : "No se pudo cargar catálogo"
+                        );
+
+                    }
+
+
+                    /*
+                     * Guardamos los 1116 productos
+                     * en memoria.
+                     */
+
+                    catalogo =
+                        Array.isArray(
+                            data.productos
+                        )
+                            ? data.productos
+                            : [];
+
+
+                    /*
+                     * Guardamos una copia
+                     * en el dispositivo.
+                     */
+
+                    localStorage.setItem(
+
+                        CACHE_CATALOGO,
+
+                        JSON.stringify(
+                            catalogo
+                        )
+
+                    );
+
+
+                    /*
+                     * Actualizamos contador.
+                     */
+
+                    mostrarEstadoCatalogo();
+
+
+                    mostrarMensaje(
+                        "✅ Catálogo listo"
+                    );
+
+
+                    terminar(true);
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Error procesando catálogo:",
+                        error
+                    );
+
+
+                    /*
+                     * Si ya existe una copia
+                     * local, seguimos trabajando.
+                     */
+
+                    if (
+                        catalogo.length > 0
+                    ) {
+
+                        mostrarEstadoCatalogo();
+
+                        mostrarMensaje(
+                            "⚠️ Usando catálogo local"
+                        );
+
+                    } else {
+
+                        contador.textContent =
+                            "No se pudo cargar el catálogo";
+
+                        mostrarMensaje(
+                            "❌ No se pudo cargar el catálogo"
+                        );
+
+                    }
+
+
+                    terminar(
+                        catalogo.length > 0
+                    );
+
+                }
+
+            };
 
 
         /*
-         * Guardar copia local.
+         * Creamos un <script> en lugar
+         * de utilizar fetch().
+         *
+         * Esto permite que GitHub Pages
+         * reciba el JSONP de Apps Script.
          */
 
-        localStorage.setItem(
-
-            CACHE_CATALOGO,
-
-            JSON.stringify(
-                catalogo
-            )
-
-        );
-
-
-        mostrarEstadoCatalogo();
-
-
-        mostrarMensaje(
-            "✅ Catálogo listo"
-        );
-
-
-    } catch (error) {
-
-        console.error(error);
-
-
-        /*
-         * Si ya tenemos catálogo
-         * local, seguimos trabajando.
-         */
-
-        if (
-            catalogo.length > 0
-        ) {
-
-            mostrarMensaje(
-                "⚠️ Trabajando con catálogo local"
+        script =
+            document.createElement(
+                "script"
             );
 
-            mostrarEstadoCatalogo();
+        script.async = true;
 
-        } else {
 
-            contador.textContent =
-                "No se pudo cargar el catálogo";
+        script.src =
 
-        }
+            API_URL +
 
-    }
+            "?accion=catalogo" +
+
+            "&callback=" +
+
+            encodeURIComponent(
+                callbackName
+            ) +
+
+            "&_=" +
+
+            Date.now();
+
+
+        /*
+         * Si Apps Script no responde.
+         */
+
+        script.onerror =
+            function(error) {
+
+                console.error(
+                    "Error conectando con Apps Script:",
+                    error
+                );
+
+
+                if (
+                    catalogo.length > 0
+                ) {
+
+                    mostrarEstadoCatalogo();
+
+                    mostrarMensaje(
+                        "⚠️ Usando catálogo local"
+                    );
+
+                } else {
+
+                    contador.textContent =
+                        "No se pudo cargar el catálogo";
+
+                    mostrarMensaje(
+                        "❌ Error de conexión"
+                    );
+
+                }
+
+
+                terminar(
+                    catalogo.length > 0
+                );
+
+            };
+
+
+        /*
+         * Enviamos la solicitud.
+         */
+
+        document.head.appendChild(
+            script
+        );
+
+
+        /*
+         * Seguridad:
+         * si no responde en 15 segundos,
+         * dejamos de esperar.
+         */
+
+        setTimeout(
+            function() {
+
+                if (terminado) {
+                    return;
+                }
+
+
+                console.error(
+                    "Tiempo de espera agotado"
+                );
+
+
+                if (
+                    catalogo.length > 0
+                ) {
+
+                    mostrarEstadoCatalogo();
+
+                    mostrarMensaje(
+                        "⚠️ Usando catálogo local"
+                    );
+
+                } else {
+
+                    contador.textContent =
+                        "No se pudo cargar el catálogo";
+
+                    mostrarMensaje(
+                        "❌ Tiempo de espera agotado"
+                    );
+
+                }
+
+
+                terminar(
+                    catalogo.length > 0
+                );
+
+            },
+            15000
+        );
+
+    });
 
 }
 
