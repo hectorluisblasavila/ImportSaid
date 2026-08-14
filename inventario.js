@@ -305,47 +305,94 @@ document.getElementById("btnCancelarNuevo")
 document.getElementById("btnGuardar")
     .addEventListener("click", async () => {
 
-        if (!productoSeleccionado) {
+    if (!productoSeleccionado) {
 
-            mostrarMensaje(
-                "Selecciona un producto"
-            );
+        mostrarMensaje(
+            "Selecciona un producto"
+        );
 
-            return;
-        }
+        return;
+    }
 
+    const cantidad =
+        Number(
+            document.getElementById("cantidad").value
+        );
 
-        const cantidad =
-            Number(
-                document.getElementById("cantidad").value
-            );
+    if (cantidad < 0) {
 
+        mostrarMensaje(
+            "La cantidad no puede ser negativa"
+        );
 
-        if (cantidad < 0) {
+        return;
+    }
 
-            mostrarMensaje(
-                "La cantidad no puede ser negativa"
-            );
+    /*
+     * TOMAR TODOS LOS DATOS ACTUALES
+     * DE LA FICHA.
+     *
+     * Esto permite modificar un producto
+     * existente y guardar los cambios.
+     */
 
-            return;
-        }
+    const datos = {
 
+        accion: "guardarInventario",
 
-        const datos = {
+        codigo:
+            productoSeleccionado.codigo,
 
-            accion: "guardarInventario",
+        medida:
+            document.getElementById("medida").value,
 
-            codigo:
-                productoSeleccionado.codigo,
+        diametro:
+            document.getElementById("diametro").value,
 
-            cantidad: cantidad
+        ancho:
+            document.getElementById("ancho").value,
 
-        };
+        perfil:
+            document.getElementById("perfil").value,
 
+        pr:
+            document.getElementById("pr").value,
 
-        await enviarDatos(datos);
+        pcd:
+            document.getElementById("pcd").value,
 
-    });
+        et:
+            document.getElementById("et").value,
+
+        marca:
+            document.getElementById("marca").value,
+
+        modelo:
+            document.getElementById("modelo").value,
+
+        iciv:
+            document.getElementById("iciv").value,
+
+        treadwear:
+            document.getElementById("treadwear").value,
+
+        traccionTemperatura:
+            document.getElementById("traccion").value,
+
+        procedencia:
+            document.getElementById("procedencia").value,
+
+        cantidad:
+            cantidad,
+
+        usuario:
+            localStorage.getItem("dni") || ""
+
+    };
+
+    await enviarDatos(datos);
+
+});
 
 
 /* ==========================================
@@ -355,68 +402,114 @@ document.getElementById("btnGuardar")
 document.getElementById("btnGuardarNuevo")
     .addEventListener("click", async () => {
 
-        const codigo =
-            document.getElementById("nuevoCodigo")
-                .value.trim();
+    const codigo =
+        document.getElementById("nuevoCodigo")
+            .value
+            .trim()
+            .toUpperCase();
 
 
-        if (!codigo) {
+    if (!codigo) {
 
-            mostrarMensaje(
-                "Debes ingresar el código"
-            );
+        mostrarMensaje(
+            "Debes ingresar el código"
+        );
 
-            return;
-        }
-
-
-        const datos = {
-
-            accion: "guardarProducto",
-
-            codigo: codigo,
-
-            medida:
-                document.getElementById("nuevoMedida").value,
-
-            diametro:
-                document.getElementById("nuevoDiametro").value,
-
-            ancho:
-                document.getElementById("nuevoAncho").value,
-
-            perfil:
-                document.getElementById("nuevoPerfil").value,
-
-            pr:
-                document.getElementById("nuevoPR").value,
-
-            marca:
-                document.getElementById("nuevoMarca").value,
-
-            modelo:
-                document.getElementById("nuevoModelo").value,
-
-            iciv:
-                document.getElementById("nuevoICIV").value,
-
-            treadwear:
-                document.getElementById("nuevoTreadwear").value,
-
-            procedencia:
-                document.getElementById("nuevoProcedencia").value,
-
-            cantidad:
-                Number(
-                    document.getElementById("nuevoCantidad").value
-                ) || 0
-
-        };
+        return;
+    }
 
 
-        await enviarDatos(datos);
+    /*
+     * NUEVO PRODUCTO
+     *
+     * Se utiliza guardarInventario,
+     * NO guardarProducto.
+     *
+     * Así:
+     *
+     * 1. Crea el producto en PRODUCTOS
+     * 2. Registra la cantidad en CONTEO FISICO
+     */
 
-    });
+    const datos = {
+
+        accion:
+            "guardarInventario",
+
+        codigo:
+            codigo,
+
+        medida:
+            document.getElementById("nuevoMedida").value,
+
+        diametro:
+            document.getElementById("nuevoDiametro").value,
+
+        ancho:
+            document.getElementById("nuevoAncho").value,
+
+        perfil:
+            document.getElementById("nuevoPerfil").value,
+
+        pr:
+            obtenerValor("nuevoPR"),
+
+        pcd:
+            obtenerValor("nuevoPCD"),
+
+        et:
+            obtenerValor("nuevoET"),
+
+        marca:
+            document.getElementById("nuevoMarca").value,
+
+        modelo:
+            document.getElementById("nuevoModelo").value,
+
+        iciv:
+            document.getElementById("nuevoICIV").value,
+
+        treadwear:
+            document.getElementById("nuevoTreadwear").value,
+
+        traccionTemperatura:
+            obtenerValor("nuevoTraccion"),
+
+        procedencia:
+            document.getElementById("nuevoProcedencia").value,
+
+        cantidad:
+            Number(
+                document.getElementById("nuevoCantidad").value
+            ) || 0,
+
+        usuario:
+            localStorage.getItem("dni") || ""
+
+    };
+
+
+    await enviarDatos(datos);
+
+});
+
+
+/* ==========================================
+   OBTENER VALOR SEGURO
+========================================== */
+
+function obtenerValor(id) {
+
+    const elemento =
+        document.getElementById(id);
+
+    if (!elemento) {
+        return "";
+    }
+
+    return elemento.value || "";
+
+}
 
 
 /* ==========================================
@@ -439,7 +532,8 @@ async function enviarDatos(datos) {
                         "text/plain;charset=utf-8"
                 },
 
-                body: JSON.stringify(datos)
+                body:
+                    JSON.stringify(datos)
 
             });
 
@@ -448,19 +542,54 @@ async function enviarDatos(datos) {
             await respuesta.json();
 
 
-        if (resultado.status === "success") {
+        if (
+            resultado.status === "success"
+        ) {
 
             mostrarMensaje(
                 "✅ Guardado correctamente"
             );
 
+
+            /*
+             * Limpiar búsqueda
+             */
+
             buscar.value = "";
 
             sugerencias.innerHTML = "";
 
-            productoPanel.classList.add("oculto");
+            contador.textContent = "";
 
-            nuevoPanel.classList.add("oculto");
+
+            /*
+             * Ocultar fichas
+             */
+
+            productoPanel
+                .classList
+                .add("oculto");
+
+            nuevoPanel
+                .classList
+                .add("oculto");
+
+
+            /*
+             * Preparar siguiente registro
+             */
+
+            productoSeleccionado =
+                null;
+
+
+            /*
+             * Volver automáticamente
+             * al buscador
+             */
+
+            buscar.focus();
+
 
         } else {
 
@@ -470,6 +599,7 @@ async function enviarDatos(datos) {
             );
 
         }
+
 
     } catch (error) {
 
@@ -482,6 +612,25 @@ async function enviarDatos(datos) {
     }
 
 }
+
+
+/* ==========================================
+   CERRAR SESIÓN
+========================================== */
+
+document.getElementById("btnCerrar")
+    .addEventListener("click", () => {
+
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("rol");
+
+    localStorage.removeItem("dni");
+
+    window.location.href =
+        "index.html";
+
+});
 
 
 /* ==========================================
