@@ -816,6 +816,22 @@ function cargarProducto(p) {
 /* =====================================================
    UTILIDADES
 ===================================================== */
+/* =====================================================
+   MENSAJES
+===================================================== */
+
+function mostrarMensaje(texto) {
+
+    if (!mensaje) {
+        console.log(texto);
+        return;
+    }
+
+    mensaje.textContent = texto;
+
+}
+
+
 
 function ponerValor(
     id,
