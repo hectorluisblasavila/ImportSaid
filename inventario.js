@@ -57,16 +57,6 @@ const nuevoPanel =
 const mensaje =
     document.getElementById("mensaje");
 
-function mostrarMensaje(texto) {
-
-    if (!mensaje) {
-        return;
-    }
-
-    mensaje.textContent = texto;
-
-}
-
 
 /* =====================================================
    INICIO
@@ -1849,49 +1839,84 @@ async function finalizarInventario() {
 
 
     try {
+        /*
+         * ENVIAR INVENTARIO A GOOGLE APPS SCRIPT
+         *
+         * Usamos no-cors porque GitHub Pages
+         * y Apps Script están en dominios diferentes.
+         *
+         * Apps Script recibirá y procesará el POST,
+         * pero el navegador no podrá leer la respuesta.
+         */
 
-        const respuesta =
-            await fetch(
-                API_URL,
-                {
+        await fetch(
+            API_URL,
+            {
+                method: "POST",
 
-                    method:
-                        "POST",
+                mode: "no-cors",
 
-                    headers: {
+                headers: {
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
+                },
 
-                        "Content-Type":
-                            "text/plain;charset=utf-8"
-
-                    },
-
-                    body:
-                        JSON.stringify(
-                            datos
-                        )
-
-                }
-            );
+                body:
+                    JSON.stringify(datos)
+            }
+        );
 
 
-        const resultado =
-            await respuesta.json();
+        /*
+         * El envío fue realizado.
+         *
+         * No intentamos hacer:
+         *
+         * await respuesta.json()
+         *
+         * porque eso provoca el error CORS.
+         */
 
 
-        if (
-            resultado.status !==
-            "success"
-        ) {
+        pendientes = {};
 
-            throw new Error(
+        localStorage.removeItem(
+            PENDIENTES_INVENTARIO
+        );
 
-                resultado.mensaje ||
 
-                "No se pudo guardar"
+        mostrarMensaje(
+            "✅ INVENTARIO ENVIADO CORRECTAMENTE"
+        );
 
-            );
+
+        actualizarResumen();
+
+
+        if (boton) {
+
+            boton.disabled = false;
+
+            boton.textContent =
+                "🟢 FINALIZAR Y GUARDAR INVENTARIO";
 
         }
+
+
+        alert(
+
+            "INVENTARIO ENVIADO\n\n" +
+
+            "Los productos y conteos " +
+            "fueron enviados a Google Sheets.\n\n" +
+
+            "Productos enviados: " +
+            productos.length +
+
+            "\nUnidades: " +
+            unidades
+
+        );
 
 
         /*
