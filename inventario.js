@@ -57,6 +57,16 @@ const nuevoPanel =
 const mensaje =
     document.getElementById("mensaje");
 
+function mostrarMensaje(texto) {
+
+    if (!mensaje) {
+        return;
+    }
+
+    mensaje.textContent = texto;
+
+}
+
 
 /* =====================================================
    INICIO
