@@ -1352,70 +1352,87 @@ const anchosValidos = [
 
 function interpretarCodigoNuevo(valor) {
 
-  let codigo =
-    String(valor || "")
-      .trim()
-      .toUpperCase();
-
+  let codigo = String(valor || "")
+    .trim()
+    .toUpperCase();
 
   /*
-   * Permitimos que el usuario escriba:
+   * Permitimos códigos escritos como:
    *
-   * 18514
+   * 1856515
+   * 185/65R15
    * 185R14
-   * 1956515
-   * 195/65R15
+   * 18514
+   * 2254517
+   *
+   * También permitimos que posteriormente
+   * el código tenga letras de marca/modelo.
+   *
+   * Ejemplo:
+   * 1856515FEDBL
    */
 
-
-  codigo =
-    codigo
-      .replace(/\s/g, "")
-      .replace(/\//g, "")
-      .replace(/R/g, "");
-
+  // Quitar espacios, / y R solamente de la parte inicial
+  codigo = codigo
+    .replace(/\s/g, "")
+    .replace(/\//g, "")
+    .replace(/^(\d+)R/i, "$1");
 
   /*
-   * SOLO NÚMEROS
+   * Separar la parte numérica inicial
+   * de las letras de marca/modelo.
    */
+  const coincidencia = codigo.match(/^(\d+)([A-Z].*)?$/);
 
-  if (!/^\d+$/.test(codigo)) {
-
+  if (!coincidencia) {
     return null;
-
   }
 
+  const numeros = coincidencia[1];
 
-  /************************************************
+  /*
+   * ------------------------------------------------
    * FORMATO SIN PERFIL
    *
+   * Ejemplo:
    * 18514
+   * 185R14
    *
-   * 185 + 14
-   ************************************************/
+   * Resultado:
+   * 185R14
+   * ------------------------------------------------
+   */
 
-  if (codigo.length === 5) {
+  if (numeros.length === 5) {
 
-    const ancho =
-      codigo.substring(0, 3);
+    const ancho = numeros.substring(0, 3);
+    const diametro = numeros.substring(3, 5);
 
-    const diametro =
-      codigo.substring(3, 5);
+    /*
+     * Validaciones reales básicas.
+     */
+    const anchosValidos = [
+      "145","155","165","175","185","195",
+      "205","215","225","235","245","255",
+      "265","275","285","295","305","315",
+      "325","335","345","355","365","375"
+    ];
 
+    const diametrosValidos = [
+      "12","13","14","15","16","17","18",
+      "19","20","21","22","23","24"
+    ];
 
     if (
       !anchosValidos.includes(ancho) ||
       !diametrosValidos.includes(diametro)
     ) {
-
       return null;
-
     }
-
 
     return {
 
-      codigoBase: codigo,
+      codigoBase: numeros,
 
       ancho: ancho,
 
@@ -1433,40 +1450,56 @@ function interpretarCodigoNuevo(valor) {
   }
 
 
-  /************************************************
+  /*
+   * ------------------------------------------------
    * FORMATO CON PERFIL
    *
-   * 1956515
+   * Ejemplo:
+   * 1856515
    *
-   * 195 + 65 + 15
-   ************************************************/
+   * 185 / 65 R15
+   * ------------------------------------------------
+   */
 
-  if (codigo.length === 7) {
+  if (numeros.length === 7) {
 
-    const ancho =
-      codigo.substring(0, 3);
+    const ancho = numeros.substring(0, 3);
 
-    const perfil =
-      codigo.substring(3, 5);
+    const perfil = numeros.substring(3, 5);
 
-    const diametro =
-      codigo.substring(5, 7);
+    const diametro = numeros.substring(5, 7);
 
+    /*
+     * Valores reales habituales.
+     */
+    const anchosValidos = [
+      "145","155","165","175","185","195",
+      "205","215","225","235","245","255",
+      "265","275","285","295","305","315",
+      "325","335","345","355","365","375"
+    ];
+
+    const perfilesValidos = [
+      "25","30","35","40","45","50","55",
+      "60","65","70","75","80","85","90"
+    ];
+
+    const diametrosValidos = [
+      "12","13","14","15","16","17","18",
+      "19","20","21","22","23","24"
+    ];
 
     if (
       !anchosValidos.includes(ancho) ||
       !perfilesValidos.includes(perfil) ||
       !diametrosValidos.includes(diametro)
     ) {
-
       return null;
-
     }
-
 
     return {
 
-      codigoBase: codigo,
+      codigoBase: numeros,
 
       ancho: ancho,
 
