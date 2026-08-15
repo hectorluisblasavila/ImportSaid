@@ -1097,6 +1097,20 @@ document
 
             guardarPendientesLocales();
 
+            guardarPendientesLocales();
+
+console.log("================================");
+console.log("🛞 PRODUCTO GUARDADO");
+console.log("Código:", producto.codigo);
+console.log("Cantidad:", cantidad);
+console.log("Producto:", producto);
+console.log("Pendientes:", pendientes);
+console.log(
+    "Total productos pendientes:",
+    Object.keys(pendientes).length
+);
+console.log("================================");
+
 
             /*
              * Actualizar también
