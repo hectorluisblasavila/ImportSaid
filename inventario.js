@@ -1968,20 +1968,20 @@ async function finalizarInventario() {
         }
 
 
-        alert(
+       alert(
+    "INVENTARIO ENVIADO\n\n" +
 
-            "INVENTARIO GUARDADO\n\n" +
+    "Productos enviados: " +
+    productos.length +
 
-            "Productos actualizados: " +
-            resultado.productosActualizados +
+    "\nUnidades: " +
+    unidades +
 
-            "\nProductos nuevos: " +
-            resultado.productosNuevos +
+    "\nConteos enviados: " +
+    conteos.length +
 
-            "\nConteos guardados: " +
-            resultado.conteosGuardados
-
-        );
+    "\n\nRevisa Google Sheets para confirmar el guardado."
+);
 
 
     } catch (error) {
