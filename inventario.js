@@ -2246,6 +2246,27 @@ async function finalizarInventario() {
         );
 
 
+
+        console.log("================================");
+console.log("🚨 FINALIZANDO INVENTARIO");
+console.log("Pendientes completos:", pendientes);
+console.log("Lista que se enviará:", lista);
+console.log("Cantidad de productos:", lista.length);
+
+lista.forEach((item, indice) => {
+    console.log(
+        "Producto",
+        indice + 1,
+        "Código:",
+        item.codigo,
+        "Cantidad:",
+        item.cantidad
+    );
+});
+
+console.log("================================");
+
+
     if (
         lista.length === 0
     ) {
