@@ -1234,7 +1234,7 @@ const campoNuevoCodigo =
   document.getElementById("nuevoCodigo");
 
 const campoNuevaMedida =
-  document.getElementById("nuevaMedida");
+  document.getElementById("nuevoMedida");
 
 const campoNuevoDiametro =
   document.getElementById("nuevoDiametro");
