@@ -1206,7 +1206,476 @@ function construirProductoDesdeFicha(
 
 }
 
+/****************************************************
+ * AUTOCOMPLETAR NUEVO PRODUCTO
+ *
+ * FORMATOS SOPORTADOS
+ *
+ * 18514
+ *   → 185R14
+ *
+ * 1956515
+ *   → 195/65R15
+ *
+ * 2454520
+ *   → 245/45R20
+ *
+ ****************************************************/
 
+
+let codigoBaseNuevo = "";
+
+
+/****************************************************
+ * CAMPOS DEL FORMULARIO
+ ****************************************************/
+
+const campoNuevoCodigo =
+  document.getElementById("nuevoCodigo");
+
+const campoNuevaMedida =
+  document.getElementById("nuevaMedida");
+
+const campoNuevoDiametro =
+  document.getElementById("nuevoDiametro");
+
+const campoNuevoAncho =
+  document.getElementById("nuevoAncho");
+
+const campoNuevoPerfil =
+  document.getElementById("nuevoPerfil");
+
+const campoNuevaMarca =
+  document.getElementById("nuevoMarca");
+
+const campoNuevoModelo =
+  document.getElementById("nuevoModelo");
+
+
+/****************************************************
+ * PERFILES REALES QUE VAMOS A ACEPTAR
+ ****************************************************/
+
+const perfilesValidos = [
+
+  "25",
+  "30",
+  "35",
+  "40",
+  "45",
+  "50",
+  "55",
+  "60",
+  "65",
+  "70",
+  "75",
+  "80",
+  "82",
+  "85",
+  "90",
+  "95"
+
+];
+
+
+/****************************************************
+ * DIÁMETROS QUE VAMOS A ACEPTAR
+ ****************************************************/
+
+const diametrosValidos = [
+
+  "10",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24"
+
+];
+
+
+/****************************************************
+ * ANCHOS RAZONABLES
+ ****************************************************/
+
+const anchosValidos = [
+
+  "125",
+  "135",
+  "145",
+  "155",
+  "165",
+  "175",
+  "185",
+  "195",
+  "205",
+  "215",
+  "225",
+  "235",
+  "245",
+  "255",
+  "265",
+  "275",
+  "285",
+  "295",
+  "305",
+  "315",
+  "325",
+  "335",
+  "345",
+  "355",
+  "365",
+  "375",
+  "385",
+  "395",
+  "405",
+  "415",
+  "425",
+  "435",
+  "445",
+  "455"
+
+];
+
+
+/****************************************************
+ * INTERPRETAR CÓDIGO
+ ****************************************************/
+
+function interpretarCodigoNuevo(valor) {
+
+  let codigo =
+    String(valor || "")
+      .trim()
+      .toUpperCase();
+
+
+  /*
+   * Permitimos que el usuario escriba:
+   *
+   * 18514
+   * 185R14
+   * 1956515
+   * 195/65R15
+   */
+
+
+  codigo =
+    codigo
+      .replace(/\s/g, "")
+      .replace(/\//g, "")
+      .replace(/R/g, "");
+
+
+  /*
+   * SOLO NÚMEROS
+   */
+
+  if (!/^\d+$/.test(codigo)) {
+
+    return null;
+
+  }
+
+
+  /************************************************
+   * FORMATO SIN PERFIL
+   *
+   * 18514
+   *
+   * 185 + 14
+   ************************************************/
+
+  if (codigo.length === 5) {
+
+    const ancho =
+      codigo.substring(0, 3);
+
+    const diametro =
+      codigo.substring(3, 5);
+
+
+    if (
+      !anchosValidos.includes(ancho) ||
+      !diametrosValidos.includes(diametro)
+    ) {
+
+      return null;
+
+    }
+
+
+    return {
+
+      codigoBase: codigo,
+
+      ancho: ancho,
+
+      perfil: "",
+
+      diametro: diametro,
+
+      medida:
+        ancho +
+        "R" +
+        diametro
+
+    };
+
+  }
+
+
+  /************************************************
+   * FORMATO CON PERFIL
+   *
+   * 1956515
+   *
+   * 195 + 65 + 15
+   ************************************************/
+
+  if (codigo.length === 7) {
+
+    const ancho =
+      codigo.substring(0, 3);
+
+    const perfil =
+      codigo.substring(3, 5);
+
+    const diametro =
+      codigo.substring(5, 7);
+
+
+    if (
+      !anchosValidos.includes(ancho) ||
+      !perfilesValidos.includes(perfil) ||
+      !diametrosValidos.includes(diametro)
+    ) {
+
+      return null;
+
+    }
+
+
+    return {
+
+      codigoBase: codigo,
+
+      ancho: ancho,
+
+      perfil: perfil,
+
+      diametro: diametro,
+
+      medida:
+        ancho +
+        "/" +
+        perfil +
+        "R" +
+        diametro
+
+    };
+
+  }
+
+
+  return null;
+
+}
+
+
+/****************************************************
+ * ACTUALIZAR CÓDIGO FINAL
+ *
+ * EJEMPLO:
+ *
+ * 2454520
+ * FEDERAL
+ * TOTAL
+ *
+ * RESULTADO:
+ *
+ * 2454520FEDTO
+ ****************************************************/
+
+function actualizarCodigoNuevo() {
+
+  if (!codigoBaseNuevo) {
+
+    return;
+
+  }
+
+
+  let codigoFinal =
+    codigoBaseNuevo;
+
+
+  /************************************************
+   * MARCA
+   *
+   * FEDERAL → FED
+   ************************************************/
+
+  if (campoNuevaMarca) {
+
+    const marca =
+      campoNuevaMarca.value
+        .trim()
+        .toUpperCase();
+
+
+    if (marca !== "") {
+
+      codigoFinal +=
+        marca.substring(0, 3);
+
+    }
+
+  }
+
+
+  /************************************************
+   * MODELO
+   *
+   * TOTAL → TO
+   ************************************************/
+
+  if (campoNuevoModelo) {
+
+    const modelo =
+      campoNuevoModelo.value
+        .trim()
+        .toUpperCase();
+
+
+    if (modelo !== "") {
+
+      codigoFinal +=
+        modelo.substring(0, 2);
+
+    }
+
+  }
+
+
+  campoNuevoCodigo.value =
+    codigoFinal;
+
+}
+
+
+/****************************************************
+ * CUANDO SE ESCRIBE EL CÓDIGO
+ ****************************************************/
+
+if (campoNuevoCodigo) {
+
+  campoNuevoCodigo.addEventListener(
+    "input",
+    function () {
+
+      const resultado =
+        interpretarCodigoNuevo(
+          this.value
+        );
+
+
+      /*
+       * TODAVÍA NO HAY UNA MEDIDA
+       */
+
+      if (!resultado) {
+
+        return;
+
+      }
+
+
+      /*
+       * GUARDAMOS SOLO LA PARTE NUMÉRICA
+       * COMO BASE.
+       */
+
+      codigoBaseNuevo =
+        resultado.codigoBase;
+
+
+      /**********************************************
+       * COMPLETAR CAMPOS
+       **********************************************/
+
+      campoNuevoAncho.value =
+        resultado.ancho;
+
+
+      campoNuevoPerfil.value =
+        resultado.perfil;
+
+
+      campoNuevoDiametro.value =
+        resultado.diametro;
+
+
+      campoNuevaMedida.value =
+        resultado.medida;
+
+
+      /*
+       * Volvemos a construir el código por si
+       * ya había marca o modelo.
+       */
+
+      actualizarCodigoNuevo();
+
+    }
+
+  );
+
+}
+
+
+/****************************************************
+ * CAMBIO DE MARCA
+ ****************************************************/
+
+if (campoNuevaMarca) {
+
+  campoNuevaMarca.addEventListener(
+    "input",
+    function () {
+
+      actualizarCodigoNuevo();
+
+    }
+  );
+
+}
+
+
+/****************************************************
+ * CAMBIO DE MODELO
+ ****************************************************/
+
+if (campoNuevoModelo) {
+
+  campoNuevoModelo.addEventListener(
+    "input",
+    function () {
+
+      actualizarCodigoNuevo();
+
+    }
+  );
+
+}
 /* =====================================================
    NUEVO PRODUCTO
 ===================================================== */
