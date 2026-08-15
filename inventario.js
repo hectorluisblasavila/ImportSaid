@@ -1079,23 +1079,31 @@ document
              * reemplaza la cantidad.
              */
 
-            pendientes[
-                producto.codigo
-            ] = {
+if (pendientes[producto.codigo]) {
 
-                codigo:
-                    producto.codigo,
+    // El producto ya fue registrado:
+    // SUMAMOS la nueva cantidad
+    pendientes[producto.codigo].cantidad += cantidad;
 
-                cantidad:
-                    cantidad,
+    // Actualizamos los datos del producto
+    pendientes[producto.codigo].producto = producto;
 
-                producto:
-                    producto
+} else {
 
-            };
+    // Es la primera vez que se registra
+    pendientes[producto.codigo] = {
 
+        codigo:
+            producto.codigo,
 
-            guardarPendientesLocales();
+        cantidad:
+            cantidad,
+
+        producto:
+            producto
+
+    };
+}
 
             guardarPendientesLocales();
 
