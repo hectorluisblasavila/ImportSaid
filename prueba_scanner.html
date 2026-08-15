@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prueba Scanner</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #reader {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+            font-weight: bold;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>📷 PRUEBA DE ESCÁNER</h2>
+
+    <p>
+        Apunta la cámara al código de barras o QR de la etiqueta.
+    </p>
+
+    <div id="reader"></div>
+
+    <div id="resultado">
+        Esperando código...
+    </div>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <script>
+
+        let ultimoCodigo = "";
+
+        function codigoDetectado(
+            decodedText,
+            decodedResult
+        ) {
+
+            console.log(
+                "=============================="
+            );
+
+            console.log(
+                "📷 CÓDIGO DETECTADO"
+            );
+
+            console.log(
+                "Código:",
+                decodedText
+            );
+
+            console.log(
+                "Resultado:",
+                decodedResult
+            );
+
+            console.log(
+                "=============================="
+            );
+
+
+            document.getElementById(
+                "resultado"
+            ).innerText =
+                "Código detectado:\n" +
+                decodedText;
+
+
+            ultimoCodigo =
+                decodedText;
+        }
+
+
+        const scanner =
+            new Html5QrcodeScanner(
+                "reader",
+                {
+                    fps: 10,
+
+                    qrbox: {
+                        width: 300,
+                        height: 150
+                    },
+
+                    rememberLastUsedCamera: true,
+
+                    showTorchButtonIfSupported: true,
+
+                    showZoomSliderIfSupported: true,
+
+                    experimentalFeatures: {
+                        useBarCodeDetectorIfSupported: true
+                    }
+                },
+
+                false
+            );
+
+
+        scanner.render(
+            codigoDetectado
+        );
+
+    </script>
+
+</body>
+</html>
